@@ -27,27 +27,30 @@
             this.EB_VideoFeedIB = new Emgu.CV.UI.ImageBox();
             this.EB_LBL1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.EB_LBL2 = new System.Windows.Forms.Label();
             this.EB_AverageEyeBlinkLBL = new System.Windows.Forms.Label();
             this.EB_LBL4 = new System.Windows.Forms.Label();
@@ -71,9 +74,6 @@
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.EB_VideoFeedIB)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox1)).BeginInit();
@@ -94,9 +94,9 @@
             this.EB_LBL1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
             this.EB_LBL1.Location = new System.Drawing.Point(414, 397);
             this.EB_LBL1.Name = "EB_LBL1";
-            this.EB_LBL1.Size = new System.Drawing.Size(126, 15);
+            this.EB_LBL1.Size = new System.Drawing.Size(143, 15);
             this.EB_LBL1.TabIndex = 3;
-            this.EB_LBL1.Text = "AVERAGE EYE BLINKS";
+            this.EB_LBL1.Text = "NUMBER OF EYE BLINKS";
             // 
             // panel1
             // 
@@ -126,98 +126,142 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(750, 0);
+            this.panel1.Location = new System.Drawing.Point(752, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(278, 829);
+            this.panel1.Size = new System.Drawing.Size(278, 830);
             this.panel1.TabIndex = 4;
             // 
-            // label1
+            // label37
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
-            this.label1.Location = new System.Drawing.Point(44, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(363, 37);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Periorbital Region Analysis";
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.ForeColor = System.Drawing.Color.White;
+            this.label37.Location = new System.Drawing.Point(104, 582);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(41, 32);
+            this.label37.TabIndex = 31;
+            this.label37.Text = "F3";
             // 
-            // label2
+            // label38
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(42, 110);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 32);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Press";
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.ForeColor = System.Drawing.Color.White;
+            this.label38.Location = new System.Drawing.Point(46, 617);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(52, 15);
+            this.label38.TabIndex = 30;
+            this.label38.Text = "TO QUIT";
             // 
-            // label3
+            // label39
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(46, 142);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 15);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "TO START SESSION";
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.ForeColor = System.Drawing.Color.White;
+            this.label39.Location = new System.Drawing.Point(42, 582);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(69, 32);
+            this.label39.TabIndex = 29;
+            this.label39.Text = "Press";
             // 
-            // label5
+            // label19
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(104, 110);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 32);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "F9";
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.White;
+            this.label19.Location = new System.Drawing.Point(104, 515);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(41, 32);
+            this.label19.TabIndex = 28;
+            this.label19.Text = "F2";
             // 
-            // label6
+            // label20
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(46, 69);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(68, 15);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "CONTROLS";
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.White;
+            this.label20.Location = new System.Drawing.Point(46, 550);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(71, 15);
+            this.label20.TabIndex = 27;
+            this.label20.Text = "FOR ABOUT";
             // 
-            // label7
+            // label21
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(104, 177);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 32);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "F10";
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.White;
+            this.label21.Location = new System.Drawing.Point(42, 515);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(69, 32);
+            this.label21.TabIndex = 26;
+            this.label21.Text = "Press";
             // 
-            // label9
+            // label4
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(46, 209);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(99, 15);
-            this.label9.TabIndex = 12;
-            this.label9.Text = "FOR ANSWERING";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(104, 448);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 32);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "F1";
             // 
-            // label10
+            // label8
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(42, 177);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(69, 32);
-            this.label10.TabIndex = 11;
-            this.label10.Text = "Press";
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(46, 483);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(81, 15);
+            this.label8.TabIndex = 24;
+            this.label8.Text = "FOR HOW-TO";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(42, 448);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(69, 32);
+            this.label16.TabIndex = 23;
+            this.label16.Text = "Press";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(104, 334);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(55, 32);
+            this.label15.TabIndex = 22;
+            this.label15.Text = "F12";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(46, 369);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(156, 15);
+            this.label17.TabIndex = 20;
+            this.label17.Text = "TO STOP CURRENT SESSION";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(42, 334);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(69, 32);
+            this.label18.TabIndex = 19;
+            this.label18.Text = "Press";
             // 
             // label11
             // 
@@ -263,104 +307,93 @@
             this.label14.TabIndex = 15;
             this.label14.Text = "Press";
             // 
-            // label15
+            // label7
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(104, 334);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(55, 32);
-            this.label15.TabIndex = 22;
-            this.label15.Text = "F12";
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(104, 177);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(55, 32);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "F10";
             // 
-            // label17
+            // label9
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(46, 369);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(156, 15);
-            this.label17.TabIndex = 20;
-            this.label17.Text = "TO STOP CURRENT SESSION";
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(46, 209);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(99, 15);
+            this.label9.TabIndex = 12;
+            this.label9.Text = "FOR ANSWERING";
             // 
-            // label18
+            // label10
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(42, 334);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(69, 32);
-            this.label18.TabIndex = 19;
-            this.label18.Text = "Press";
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(42, 177);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(69, 32);
+            this.label10.TabIndex = 11;
+            this.label10.Text = "Press";
             // 
-            // label4
+            // label6
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(104, 448);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 32);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "F1";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(46, 69);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(68, 15);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "CONTROLS";
             // 
-            // label8
+            // label5
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(46, 483);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(81, 15);
-            this.label8.TabIndex = 24;
-            this.label8.Text = "FOR HOW-TO";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(104, 110);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 32);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "F9";
             // 
-            // label16
+            // label3
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(42, 448);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(69, 32);
-            this.label16.TabIndex = 23;
-            this.label16.Text = "Press";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(46, 142);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(102, 15);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "TO START ASKING";
             // 
-            // label19
+            // label2
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(104, 515);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(41, 32);
-            this.label19.TabIndex = 28;
-            this.label19.Text = "F2";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(42, 110);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(69, 32);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Press";
             // 
-            // label20
+            // label1
             // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.Location = new System.Drawing.Point(46, 550);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(71, 15);
-            this.label20.TabIndex = 27;
-            this.label20.Text = "FOR ABOUT";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.White;
-            this.label21.Location = new System.Drawing.Point(42, 515);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(69, 32);
-            this.label21.TabIndex = 26;
-            this.label21.Text = "Press";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
+            this.label1.Location = new System.Drawing.Point(44, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(363, 37);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Periorbital Region Analysis";
             // 
             // EB_LBL2
             // 
@@ -369,9 +402,9 @@
             this.EB_LBL2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
             this.EB_LBL2.Location = new System.Drawing.Point(414, 414);
             this.EB_LBL2.Name = "EB_LBL2";
-            this.EB_LBL2.Size = new System.Drawing.Size(74, 15);
+            this.EB_LBL2.Size = new System.Drawing.Size(41, 15);
             this.EB_LBL2.TabIndex = 6;
-            this.EB_LBL2.Text = "PER MINUTE";
+            this.EB_LBL2.Text = "TOTAL";
             // 
             // EB_AverageEyeBlinkLBL
             // 
@@ -380,9 +413,9 @@
             this.EB_AverageEyeBlinkLBL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
             this.EB_AverageEyeBlinkLBL.Location = new System.Drawing.Point(406, 427);
             this.EB_AverageEyeBlinkLBL.Name = "EB_AverageEyeBlinkLBL";
-            this.EB_AverageEyeBlinkLBL.Size = new System.Drawing.Size(84, 65);
+            this.EB_AverageEyeBlinkLBL.Size = new System.Drawing.Size(56, 65);
             this.EB_AverageEyeBlinkLBL.TabIndex = 7;
-            this.EB_AverageEyeBlinkLBL.Text = "32";
+            this.EB_AverageEyeBlinkLBL.Text = "0";
             // 
             // EB_LBL4
             // 
@@ -416,7 +449,8 @@
             this.EB_RealtimeLogTXBX.Multiline = true;
             this.EB_RealtimeLogTXBX.Name = "EB_RealtimeLogTXBX";
             this.EB_RealtimeLogTXBX.ReadOnly = true;
-            this.EB_RealtimeLogTXBX.Size = new System.Drawing.Size(221, 209);
+            this.EB_RealtimeLogTXBX.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.EB_RealtimeLogTXBX.Size = new System.Drawing.Size(304, 209);
             this.EB_RealtimeLogTXBX.TabIndex = 10;
             // 
             // imageBox1
@@ -465,11 +499,12 @@
             this.EB_BlinkedLBL.AutoSize = true;
             this.EB_BlinkedLBL.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EB_BlinkedLBL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
-            this.EB_BlinkedLBL.Location = new System.Drawing.Point(571, 339);
+            this.EB_BlinkedLBL.Location = new System.Drawing.Point(608, 341);
             this.EB_BlinkedLBL.Name = "EB_BlinkedLBL";
-            this.EB_BlinkedLBL.Size = new System.Drawing.Size(146, 32);
+            this.EB_BlinkedLBL.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.EB_BlinkedLBL.Size = new System.Drawing.Size(116, 32);
             this.EB_BlinkedLBL.TabIndex = 15;
-            this.EB_BlinkedLBL.Text = "DETECTING";
+            this.EB_BlinkedLBL.Text = "BLINKED";
             this.EB_BlinkedLBL.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.EB_BlinkedLBL.Visible = false;
             // 
@@ -560,6 +595,7 @@
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox1.Size = new System.Drawing.Size(306, 209);
             this.textBox1.TabIndex = 23;
             // 
@@ -619,45 +655,12 @@
             this.label36.TabIndex = 27;
             this.label36.Text = "CURRENT STATUS";
             // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.ForeColor = System.Drawing.Color.White;
-            this.label37.Location = new System.Drawing.Point(104, 582);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(41, 32);
-            this.label37.TabIndex = 31;
-            this.label37.Text = "F3";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.ForeColor = System.Drawing.Color.White;
-            this.label38.Location = new System.Drawing.Point(46, 617);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(52, 15);
-            this.label38.TabIndex = 30;
-            this.label38.Text = "TO QUIT";
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.ForeColor = System.Drawing.Color.White;
-            this.label39.Location = new System.Drawing.Point(42, 582);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(69, 32);
-            this.label39.TabIndex = 29;
-            this.label39.Text = "Press";
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1022, 813);
+            this.ClientSize = new System.Drawing.Size(1024, 814);
             this.ControlBox = false;
             this.Controls.Add(this.label35);
             this.Controls.Add(this.label36);
@@ -686,12 +689,18 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.EB_LBL1);
             this.Controls.Add(this.EB_VideoFeedIB);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MinimumSize = new System.Drawing.Size(1000, 750);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Main_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Main_KeyDown);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Drag_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Drag_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Drag_MouseUp);
             ((System.ComponentModel.ISupportInitialize)(this.EB_VideoFeedIB)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

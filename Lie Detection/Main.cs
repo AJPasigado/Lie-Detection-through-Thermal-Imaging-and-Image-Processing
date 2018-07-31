@@ -27,13 +27,18 @@ namespace Lie_Detection {
         bool DETECT_EYES = false;
         VideoCapture CAM_CAPTURE;
 
+        bool START_SESSION = false;
+
+        Point lastLocation;
+        bool mouseDown;
+
 
         public Main() {
             InitializeComponent();
         }
 
         private void Main_Load(object sender, EventArgs e) {
-            try {
+            /*try {
                 CAM_CAPTURE = new VideoCapture(0);
             }
             catch (Exception ex) {
@@ -43,7 +48,7 @@ namespace Lie_Detection {
                 Environment.Exit(0);
                 return;
             }
-            Application.Idle += processFrameAndUpdateGUI;
+            Application.Idle += processFrameAndUpdateGUI;*/
         }
 
         void processFrameAndUpdateGUI(object sender, EventArgs arg) {
@@ -51,20 +56,23 @@ namespace Lie_Detection {
 
             Image<Gray, Byte> videoFeedGray = videoFeed.Convert<Gray, Byte>();
             Rectangle[] facesDetected = FACE_CASCADE.DetectMultiScale(videoFeedGray, 1.3, 5);
-
-            try {
+          
+            if (!(facesDetected.Length == 0)) {
                 videoFeed.Draw(facesDetected[0], new Bgr(Color.Blue), 2);
                 //videoFeedGray.ROI = facesDetected[0];
 
                 Rectangle[] eyesDetected = EYE_CASCADE.DetectMultiScale(videoFeedGray, 1.3, 5);
-                try {
+                if (!(eyesDetected.Length==0)) {
                     videoFeed.Draw(eyesDetected[0], new Bgr(Color.Blue), 2);
-                    DETECT_EYES = true;
-                    EB_BlinkedLBL.Hide();
+                    if (START_SESSION) {
+                        DETECT_EYES = true;
+                        EB_BlinkedLBL.Hide();
+                    }
                 }
-                catch (Exception) {
-                    if (DETECT_EYES) {
+                else  {
+                    if (DETECT_EYES && START_SESSION) {
                         TOTAL_BLINKS++;
+                        EB_AverageEyeBlinkLBL.Text = TOTAL_BLINKS.ToString();
                         EB_RealtimeLogTXBX.AppendText(DateTime.Now.ToString("HH:mm.ss") + "\n");
                         EB_BlinkedLBL.Show();
                     }
@@ -72,9 +80,50 @@ namespace Lie_Detection {
                 }
                 EB_VideoFeedIB.Image = videoFeed.Resize(EB_VideoFeedIB.Width, EB_VideoFeedIB.Height, Inter.Linear);
             }
-            catch (Exception) { }
 
-        
+        }
+
+        private void Main_KeyDown(object sender, KeyEventArgs e) {
+            if (e.KeyCode.ToString() == "F9") {
+                EB_RealtimeLogTXBX.AppendText("=== WATCHING/ASKING ===\n");
+                EB_AverageEyeBlinkLBL.Text = "0";
+                TOTAL_BLINKS = 0;
+                START_SESSION = true;
+            } else if (e.KeyCode.ToString() == "F10") {
+                EB_AverageEyeBlinkLBL.Text = "0";
+                TOTAL_BLINKS = 0;
+                EB_RealtimeLogTXBX.AppendText("=== ANSWERING ===\n");
+            } else if (e.KeyCode.ToString() == "F11") {
+                Report report = new Report {
+                    reference = this,
+                    Location = Location,
+                    Size = Size,
+                    data = EB_RealtimeLogTXBX.Text
+                };
+                this.Hide();
+                report.Show();
+            } else if (e.KeyCode.ToString() == "F12") {
+                START_SESSION = false;
+                EB_AverageEyeBlinkLBL.Text = "";
+                TOTAL_BLINKS = 0;
+                EB_RealtimeLogTXBX.AppendText("=== END SESSION ===\n");
+            } else if (e.KeyCode.ToString() == "F3") {
+                Close();
+            }
+        }
+
+        private void Drag_MouseUp(object sender, MouseEventArgs e) {
+            mouseDown = false;
+        }
+        private void Drag_MouseDown(object sender, MouseEventArgs e) {
+            mouseDown = true;
+            lastLocation = e.Location;
+        }
+        private void Drag_MouseMove(object sender, MouseEventArgs e) {
+            if (mouseDown) {
+                this.Location = new Point((this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
+                this.Update();
+            }
         }
     }
 }

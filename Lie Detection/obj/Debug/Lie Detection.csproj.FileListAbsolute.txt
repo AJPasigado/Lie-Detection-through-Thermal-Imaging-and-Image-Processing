@@ -14,7 +14,6 @@ D:\Docs\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie De
 D:\Docs\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\bin\Debug\Emgu.CV.UI.xml
 D:\Docs\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\bin\Debug\Emgu.CV.UI.GL.xml
 D:\Docs\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\bin\Debug\Emgu.CV.World.xml
-D:\Docs\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\obj\Debug\Lie Detection.csprojAssemblyReference.cache
 D:\Docs\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\obj\Debug\Lie_Detection.Main.resources
 D:\Docs\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\obj\Debug\Lie_Detection.Properties.Resources.resources
 D:\Docs\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\obj\Debug\Lie Detection.csproj.GenerateResource.cache
@@ -22,3 +21,8 @@ D:\Docs\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie De
 D:\Docs\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\obj\Debug\Lie Detection.csproj.CopyComplete
 D:\Docs\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\obj\Debug\Lie Detection.exe
 D:\Docs\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\obj\Debug\Lie Detection.pdb
+D:\Docs\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\bin\Debug\numl.dll
+D:\Docs\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\bin\Debug\numl.pdb
+D:\Docs\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\bin\Debug\numl.xml
+D:\Docs\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\obj\Debug\Lie Detection.csprojAssemblyReference.cache
+D:\Docs\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\obj\Debug\Lie_Detection.Report.resources
