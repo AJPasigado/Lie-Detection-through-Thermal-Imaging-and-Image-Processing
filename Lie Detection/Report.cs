@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Lie_Detection {
@@ -131,8 +127,13 @@ namespace Lie_Detection {
 22:56.54
 ";
 
+            List<double> tempList = new List<double>();
             List<double> normalAverage = new List<double>();
             List<double> afterQuestionAverage = new List<double>();
+
+            List<double> finalAverageList = new List<double>();
+            List<double> finalAfterList = new List<double>();
+
             bool initial = false;
             int flag = 0;
             int temp = 0;
@@ -141,10 +142,18 @@ namespace Lie_Detection {
                 string line;
                 while ((line = reader.ReadLine()) != null) {
                     if (line.Equals("=== WATCHING / ASKING ===")) {
+                        if (tempList.Count > 0) {
+                            finalAfterList.Add(tempList.Sum() / tempList.Count);
+                            tempList.Clear();
+                        }
                         initial = true;
                         blinks = 0;
                         flag = 1;
                     } else if (line.Equals("=== ANSWERING ===")) {
+                        if (tempList.Count > 0) {
+                            finalAverageList.Add(tempList.Sum() / tempList.Count);
+                            tempList.Clear();
+                        }
                         initial = true;
                         blinks = 0;
                         flag = 2;
@@ -157,8 +166,10 @@ namespace Lie_Detection {
                             if (flag == 2) {
                                 EB_Q1CHRT.Series["Blinks"].Points[dataPoint].Color = Color.FromArgb(151, 128, 128);
                                 afterQuestionAverage.Add(blinks);
+                                tempList.Add(blinks);
                             } else {
                                 normalAverage.Add(blinks);
+                                tempList.Add(blinks);
                             }
                             blinks = 0;
                             temp += 4;
@@ -167,14 +178,21 @@ namespace Lie_Detection {
                 } //End of While-loop
             } //End of String Reader
 
+            finalAfterList.Add(tempList.Sum() / tempList.Count);
+            tempList.Clear();
+
             EB_AfterQuestionAveLBL.Text = (afterQuestionAverage.Sum() / afterQuestionAverage.Count).ToString("F2");
             EB_NormalAverageLBL.Text = (normalAverage.Sum() / normalAverage.Count).ToString("F2");
 
             NaiveBayes nb = new NaiveBayes();
             nb.GenerateModel();
-            EB_ResultDTGRD.Rows.Add("0", EB_NormalAverageLBL.Text, EB_AfterQuestionAveLBL.Text,
-                (Convert.ToDouble(EB_AfterQuestionAveLBL.Text) / Convert.ToDouble(EB_NormalAverageLBL.Text)).ToString(),
-                nb.Predict(1.0, (Convert.ToDouble(EB_AfterQuestionAveLBL.Text)/ Convert.ToDouble(EB_NormalAverageLBL.Text))).ToString());
+
+            for (int i = 0; i<finalAfterList.Count; i++) {
+                EB_ResultDTGRD.Rows.Add(i+1, finalAverageList[i], finalAfterList[i], finalAfterList[i] / finalAverageList[i],
+                        nb.Predict(1.0, finalAfterList[i] / finalAverageList[i]).ToString());
+            }
+
+            
         }
 
         private void Report_SizeChanged(object sender, EventArgs e) {
