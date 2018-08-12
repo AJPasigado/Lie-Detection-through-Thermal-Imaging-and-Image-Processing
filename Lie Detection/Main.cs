@@ -21,8 +21,8 @@ namespace Lie_Detection {
 
         // member variables ///////////////////////////////////////////////////////////////////////
         
-        CascadeClassifier FACE_CASCADE = new CascadeClassifier(@"D:\Docs\GitHub\opencv\data\haarcascades\haarcascade_frontalface_default.xml");
-        CascadeClassifier EYE_CASCADE = new CascadeClassifier(@"D:\Docs\GitHub\opencv\data\haarcascades\haarcascade_eye.xml");
+        CascadeClassifier FACE_CASCADE = new CascadeClassifier(@"D:\Documents\GitHub\opencv\data\haarcascades\haarcascade_frontalface_default.xml");
+        CascadeClassifier EYE_CASCADE = new CascadeClassifier(@"D:\Documents\GitHub\opencv\data\haarcascades\haarcascade_eye.xml");
         int TOTAL_BLINKS = 0;
         bool DETECT_EYES = false;
         VideoCapture CAM_CAPTURE;
@@ -38,20 +38,10 @@ namespace Lie_Detection {
         }
 
         private void Main_Load(object sender, EventArgs e) {
-            /*try {
-                CAM_CAPTURE = new VideoCapture(0);
-            }
-            catch (Exception ex) {
-                MessageBox.Show("unable to read from webcam, error: " + Environment.NewLine + Environment.NewLine +
-                                ex.Message + Environment.NewLine + Environment.NewLine +
-                                "exiting program");
-                Environment.Exit(0);
-                return;
-            }
-            Application.Idle += processFrameAndUpdateGUI;*/
+         
         }
 
-        void processFrameAndUpdateGUI(object sender, EventArgs arg) {
+        void EyeBlinkProcess(object sender, EventArgs arg) {
             Image<Bgr, Byte> videoFeed = CAM_CAPTURE.QueryFrame().ToImage<Bgr, Byte>();
 
             Image<Gray, Byte> videoFeedGray = videoFeed.Convert<Gray, Byte>();
@@ -59,7 +49,6 @@ namespace Lie_Detection {
           
             if (!(facesDetected.Length == 0)) {
                 videoFeed.Draw(facesDetected[0], new Bgr(Color.Blue), 2);
-                //videoFeedGray.ROI = facesDetected[0];
 
                 Rectangle[] eyesDetected = EYE_CASCADE.DetectMultiScale(videoFeedGray, 1.3, 5);
                 if (!(eyesDetected.Length==0)) {
@@ -79,12 +68,16 @@ namespace Lie_Detection {
                     DETECT_EYES = false;
                 }
                 EB_VideoFeedIB.Image = videoFeed.Resize(EB_VideoFeedIB.Width, EB_VideoFeedIB.Height, Inter.Linear);
+                imageBox1.Image = videoFeed.Resize(EB_VideoFeedIB.Width, EB_VideoFeedIB.Height, Inter.Linear);
             }
-
         }
 
         private void Main_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode.ToString() == "F9") {
+                if (!START_SESSION) {
+                    StartCamera();
+                    EB_RealtimeLogTXBX.Text = "";
+                }
                 EB_RealtimeLogTXBX.AppendText("=== WATCHING/ASKING ===\n");
                 EB_AverageEyeBlinkLBL.Text = "0";
                 TOTAL_BLINKS = 0;
@@ -94,6 +87,7 @@ namespace Lie_Detection {
                 TOTAL_BLINKS = 0;
                 EB_RealtimeLogTXBX.AppendText("=== ANSWERING ===\n");
             } else if (e.KeyCode.ToString() == "F11") {
+                EndSession();
                 Report report = new Report {
                     reference = this,
                     Location = Location,
@@ -103,13 +97,33 @@ namespace Lie_Detection {
                 this.Hide();
                 report.Show();
             } else if (e.KeyCode.ToString() == "F12") {
-                START_SESSION = false;
-                EB_AverageEyeBlinkLBL.Text = "";
-                TOTAL_BLINKS = 0;
-                EB_RealtimeLogTXBX.AppendText("=== END SESSION ===\n");
+                EndSession();
             } else if (e.KeyCode.ToString() == "F3") {
                 Close();
             }
+        }
+
+        private void EndSession()
+        {
+            Application.Idle -= EyeBlinkProcess;
+            START_SESSION = false;
+            EB_AverageEyeBlinkLBL.Text = "";
+            TOTAL_BLINKS = 0;
+            EB_RealtimeLogTXBX.AppendText("=== END SESSION ===\n");
+        }
+
+        private void StartCamera() {
+            try {
+                CAM_CAPTURE = new VideoCapture(0);
+            }
+            catch (Exception ex) {
+                MessageBox.Show("unable to read from webcam, error: " + Environment.NewLine + Environment.NewLine +
+                                ex.Message + Environment.NewLine + Environment.NewLine +
+                                "exiting program");
+                Environment.Exit(0);
+                return;
+            }
+            Application.Idle += EyeBlinkProcess;
         }
 
         private void Drag_MouseUp(object sender, MouseEventArgs e) {
