@@ -74,6 +74,9 @@
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
+            this.EB_FromFileBTN = new System.Windows.Forms.Button();
+            this.EB_OpenFileDBOX = new System.Windows.Forms.OpenFileDialog();
+            this.EB_FramesTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.EB_VideoFeedIB)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox1)).BeginInit();
@@ -655,6 +658,31 @@
             this.label36.TabIndex = 27;
             this.label36.Text = "CURRENT STATUS";
             // 
+            // EB_FromFileBTN
+            // 
+            this.EB_FromFileBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.EB_FromFileBTN.FlatAppearance.BorderSize = 0;
+            this.EB_FromFileBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EB_FromFileBTN.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.EB_FromFileBTN.ForeColor = System.Drawing.SystemColors.Control;
+            this.EB_FromFileBTN.Location = new System.Drawing.Point(630, 91);
+            this.EB_FromFileBTN.Name = "EB_FromFileBTN";
+            this.EB_FromFileBTN.Size = new System.Drawing.Size(88, 23);
+            this.EB_FromFileBTN.TabIndex = 29;
+            this.EB_FromFileBTN.Text = "FROM FILE";
+            this.EB_FromFileBTN.UseVisualStyleBackColor = false;
+            this.EB_FromFileBTN.Click += new System.EventHandler(this.EB_FromFileBTN_Click);
+            // 
+            // EB_OpenFileDBOX
+            // 
+            this.EB_OpenFileDBOX.FileName = "openFileDialog1";
+            this.EB_OpenFileDBOX.Filter = "Video Files|*.mp4";
+            // 
+            // EB_FramesTimer
+            // 
+            this.EB_FramesTimer.Interval = 1;
+            this.EB_FramesTimer.Tick += new System.EventHandler(this.EB_FramesTimer_Tick);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -662,6 +690,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1024, 814);
             this.ControlBox = false;
+            this.Controls.Add(this.EB_FromFileBTN);
             this.Controls.Add(this.label35);
             this.Controls.Add(this.label36);
             this.Controls.Add(this.label34);
@@ -696,7 +725,6 @@
             this.MinimumSize = new System.Drawing.Size(1000, 750);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.Main_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Main_KeyDown);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Drag_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Drag_MouseMove);
@@ -761,6 +789,9 @@
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Button EB_FromFileBTN;
+        private System.Windows.Forms.OpenFileDialog EB_OpenFileDBOX;
+        private System.Windows.Forms.Timer EB_FramesTimer;
     }
 }
 

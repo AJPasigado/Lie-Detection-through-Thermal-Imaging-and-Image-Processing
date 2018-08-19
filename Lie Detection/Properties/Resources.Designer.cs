@@ -9,8 +9,9 @@
 //------------------------------------------------------------------------------
 
 namespace Lie_Detection.Properties {
-
-
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -18,33 +19,33 @@ namespace Lie_Detection.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
-
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
-                if ((resourceMan == null)) {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Lie_Detection.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
@@ -56,6 +57,55 @@ namespace Lie_Detection.Properties {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1.67,FALSE
+        ///1.5,FALSE
+        ///1.67,FALSE
+        ///0.67,FALSE
+        ///3,FALSE
+        ///1.33,FALSE
+        ///1.5,FALSE
+        ///0,FALSE
+        ///0,FALSE
+        ///0.75,FALSE
+        ///0,FALSE
+        ///2,FALSE
+        ///0,FALSE
+        ///0,FALSE
+        ///1.5,FALSE
+        ///0,FALSE
+        ///0.5,FALSE
+        ///0,FALSE
+        ///1.33,FALSE
+        ///0,FALSE
+        ///0,FALSE
+        ///3,TRUE
+        ///2,TRUE
+        ///3,TRUE
+        ///2.5,TRUE
+        ///2.5,TRUE
+        ///3,TRUE
+        ///0,TRUE
+        ///4,TRUE
+        ///2,TRUE
+        ///2,TRUE
+        ///4,TRUE
+        ///2,TRUE
+        ///0,TRUE
+        ///2,TRUE
+        ///0,TRUE
+        ///3,TRUE
+        ///2,TRUE
+        ///3,TRUE
+        ///2.5,TRUE
+        ///.
+        /// </summary>
+        internal static string EB_training {
+            get {
+                return ResourceManager.GetString("EB_training", resourceCulture);
             }
         }
     }

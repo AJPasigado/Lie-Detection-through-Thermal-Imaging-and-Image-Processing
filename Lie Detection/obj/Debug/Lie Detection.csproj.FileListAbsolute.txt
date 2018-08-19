@@ -54,3 +54,4 @@ D:\Documents\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\L
 D:\Documents\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\obj\Debug\Lie Detection.csproj.CopyComplete
 D:\Documents\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\obj\Debug\Lie Detection.exe
 D:\Documents\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\obj\Debug\Lie Detection.pdb
+D:\Documents\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\obj\Debug\Lie_Detection.EB_FromFileProcessingFORM.resources
