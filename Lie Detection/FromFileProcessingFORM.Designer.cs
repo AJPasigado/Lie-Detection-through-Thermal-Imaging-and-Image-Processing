@@ -1,6 +1,6 @@
 ﻿namespace Lie_Detection
 {
-    partial class EB_FromFileProcessingFORM
+    partial class FromFileProcessingFORM
     {
         /// <summary>
         /// Required designer variable.
@@ -32,6 +32,7 @@
             this.DoneBTN = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.CancelBTN = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // EB_RealtimeLogTXBX
@@ -56,9 +57,9 @@
             this.DoneBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DoneBTN.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.DoneBTN.ForeColor = System.Drawing.SystemColors.Control;
-            this.DoneBTN.Location = new System.Drawing.Point(36, 484);
+            this.DoneBTN.Location = new System.Drawing.Point(40, 484);
             this.DoneBTN.Name = "DoneBTN";
-            this.DoneBTN.Size = new System.Drawing.Size(487, 33);
+            this.DoneBTN.Size = new System.Drawing.Size(238, 33);
             this.DoneBTN.TabIndex = 32;
             this.DoneBTN.Text = "DONE";
             this.DoneBTN.UseVisualStyleBackColor = false;
@@ -90,7 +91,22 @@
             this.textBox1.Text = "Insert the following to their desired positions:\r\n\r\n=== WATCHING/ASKING ===\r\n=== " +
     "ANSWERING ===\r\n";
             // 
-            // EB_FromFileProcessingFORM
+            // CancelBTN
+            // 
+            this.CancelBTN.BackColor = System.Drawing.Color.White;
+            this.CancelBTN.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.CancelBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelBTN.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.CancelBTN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
+            this.CancelBTN.Location = new System.Drawing.Point(284, 484);
+            this.CancelBTN.Name = "CancelBTN";
+            this.CancelBTN.Size = new System.Drawing.Size(238, 33);
+            this.CancelBTN.TabIndex = 35;
+            this.CancelBTN.Text = "CANCEL";
+            this.CancelBTN.UseVisualStyleBackColor = false;
+            this.CancelBTN.Click += new System.EventHandler(this.CancelBTN_Click);
+            // 
+            // FromFileProcessingFORM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -98,12 +114,15 @@
             this.CancelButton = this.DoneBTN;
             this.ClientSize = new System.Drawing.Size(558, 551);
             this.ControlBox = false;
+            this.Controls.Add(this.CancelBTN);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DoneBTN);
             this.Controls.Add(this.EB_RealtimeLogTXBX);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "EB_FromFileProcessingFORM";
+            this.Name = "FromFileProcessingFORM";
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.EB_FromFileProcessingFORM_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -116,5 +135,6 @@
         private System.Windows.Forms.Button DoneBTN;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button CancelBTN;
     }
 }

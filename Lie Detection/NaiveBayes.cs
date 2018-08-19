@@ -64,7 +64,6 @@ namespace Lie_Detection {
                 }
             }
 
-
             Slopes[] sl = listSlope.ToArray();
 
             EB_learned = Learner.Learn(sl, 0.8, 1000, EB_generator);

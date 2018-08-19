@@ -64,11 +64,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EB_FromFileProcessingFORM.cs">
+    <Compile Include="About.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EB_FromFileProcessingFORM.Designer.cs">
-      <DependentUpon>EB_FromFileProcessingFORM.cs</DependentUpon>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FromFileProcessingFORM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FromFileProcessingFORM.Designer.cs">
+      <DependentUpon>FromFileProcessingFORM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Help.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Help.Designer.cs">
+      <DependentUpon>Help.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -85,8 +97,20 @@
     <Compile Include="Report.Designer.cs">
       <DependentUpon>Report.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="EB_FromFileProcessingFORM.resx">
-      <DependentUpon>EB_FromFileProcessingFORM.cs</DependentUpon>
+    <Compile Include="Shadow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Shadow.Designer.cs">
+      <DependentUpon>Shadow.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FromFileProcessingFORM.resx">
+      <DependentUpon>FromFileProcessingFORM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Help.resx">
+      <DependentUpon>Help.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -103,6 +127,9 @@
     </Compile>
     <EmbeddedResource Include="Report.resx">
       <DependentUpon>Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Shadow.resx">
+      <DependentUpon>Shadow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

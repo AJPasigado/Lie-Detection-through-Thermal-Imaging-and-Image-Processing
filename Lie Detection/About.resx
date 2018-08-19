@@ -117,13 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="EB_OpenFileDBOX.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <data name="label3.Text" xml:space="preserve">
+    <value>Lie Detection is a way of detecting deception based on the physiological status of a person. Some of the methods that are used in lie detection are thermal imaging, varying eye blinks using image processing, voice analysis, and the polygraph. The polygraph in conjunction with a lie detection expert is the most widely used method. However, because of this dependency on the lie detection expert, it can only correctly categorize 70% of the subjects. Voice Analysis has a lower accuracy of 32-50% on categorizing lie detection. The thermal imaging has an accuracy of 87% and the Varying Eye Blinks using Image processing has an accuracy of 81%. In this paper, we are going to combine thermal imaging and image processing to test if the accuracy of lie detection will increase. The idea is that lying needs a high cognitive load and this can affect the temperature of the periorbital region by increasing the level of stress and the number of eye blinks. This study will start with gathering data from 50 persons by making them watch a video that they will probably lie about in the interview. The data that the thermal imaging and the image processing will need will be gathered in real-time. These data will then be combined and be fed into the Naïve Bayes Algorithm to train and create the classifier. The classifier will be cross-evaluated to determine the accuracy. An interface will also be implemented for this study. </value>
+  </data>
+  <metadata name="FadeTMR.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
-  </metadata>
-  <metadata name="EB_FramesTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>168, 17</value>
-  </metadata>
-  <metadata name="FadeTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>308, 17</value>
   </metadata>
 </root>

@@ -23,11 +23,11 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -48,6 +48,11 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.EB_ResultDTGRD = new System.Windows.Forms.DataGridView();
+            this.QuestionNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AverageNormalBlinks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AverageAfterQuestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Slope = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label16 = new System.Windows.Forms.Label();
             this.EB_AfterQuestionAveLBL = new System.Windows.Forms.Label();
             this.EB_NormalAverageLBL = new System.Windows.Forms.Label();
@@ -72,11 +77,6 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.QuestionNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AverageNormalBlinks = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AverageAfterQuestion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Slope = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.EB_MainPNL.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EB_ResultDTGRD)).BeginInit();
@@ -100,9 +100,9 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(752, 0);
+            this.panel1.Location = new System.Drawing.Point(766, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(278, 830);
+            this.panel1.Size = new System.Drawing.Size(278, 844);
             this.panel1.TabIndex = 5;
             // 
             // label11
@@ -248,7 +248,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
-            this.label1.Location = new System.Drawing.Point(44, 28);
+            this.label1.Location = new System.Drawing.Point(44, 38);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(218, 37);
             this.label1.TabIndex = 14;
@@ -273,8 +273,9 @@
             this.EB_MainPNL.Controls.Add(this.label8);
             this.EB_MainPNL.Location = new System.Drawing.Point(35, 124);
             this.EB_MainPNL.Name = "EB_MainPNL";
-            this.EB_MainPNL.Size = new System.Drawing.Size(679, 653);
+            this.EB_MainPNL.Size = new System.Drawing.Size(693, 667);
             this.EB_MainPNL.TabIndex = 17;
+            this.EB_MainPNL.Visible = false;
             // 
             // label18
             // 
@@ -282,7 +283,7 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(334, 55);
+            this.label18.Location = new System.Drawing.Point(348, 55);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(99, 15);
             this.label18.TabIndex = 47;
@@ -294,7 +295,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(334, 77);
+            this.label17.Location = new System.Drawing.Point(348, 77);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(63, 15);
             this.label17.TabIndex = 46;
@@ -304,7 +305,7 @@
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.Silver;
-            this.panel3.Location = new System.Drawing.Point(453, 54);
+            this.panel3.Location = new System.Drawing.Point(467, 54);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(163, 16);
             this.panel3.TabIndex = 45;
@@ -313,7 +314,7 @@
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.panel2.Location = new System.Drawing.Point(453, 77);
+            this.panel2.Location = new System.Drawing.Point(467, 77);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(163, 16);
             this.panel2.TabIndex = 44;
@@ -330,14 +331,14 @@
             this.EB_ResultDTGRD.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.EB_ResultDTGRD.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.EB_ResultDTGRD.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.EB_ResultDTGRD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.EB_ResultDTGRD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.EB_ResultDTGRD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.EB_ResultDTGRD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.QuestionNumber,
@@ -345,33 +346,66 @@
             this.AverageAfterQuestion,
             this.Slope,
             this.Tag});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.EB_ResultDTGRD.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.EB_ResultDTGRD.DefaultCellStyle = dataGridViewCellStyle5;
             this.EB_ResultDTGRD.EnableHeadersVisualStyles = false;
             this.EB_ResultDTGRD.GridColor = System.Drawing.Color.White;
             this.EB_ResultDTGRD.Location = new System.Drawing.Point(14, 425);
             this.EB_ResultDTGRD.Name = "EB_ResultDTGRD";
             this.EB_ResultDTGRD.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.EB_ResultDTGRD.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.EB_ResultDTGRD.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.EB_ResultDTGRD.RowHeadersVisible = false;
             this.EB_ResultDTGRD.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.EB_ResultDTGRD.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.EB_ResultDTGRD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.EB_ResultDTGRD.Size = new System.Drawing.Size(626, 205);
+            this.EB_ResultDTGRD.Size = new System.Drawing.Size(640, 205);
             this.EB_ResultDTGRD.TabIndex = 43;
+            // 
+            // QuestionNumber
+            // 
+            this.QuestionNumber.HeaderText = "No.";
+            this.QuestionNumber.Name = "QuestionNumber";
+            this.QuestionNumber.ReadOnly = true;
+            this.QuestionNumber.Width = 50;
+            // 
+            // AverageNormalBlinks
+            // 
+            this.AverageNormalBlinks.HeaderText = "Avg. Normal Blinks";
+            this.AverageNormalBlinks.Name = "AverageNormalBlinks";
+            this.AverageNormalBlinks.ReadOnly = true;
+            this.AverageNormalBlinks.Width = 200;
+            // 
+            // AverageAfterQuestion
+            // 
+            this.AverageAfterQuestion.HeaderText = "Avg. After-Question Blinks";
+            this.AverageAfterQuestion.Name = "AverageAfterQuestion";
+            this.AverageAfterQuestion.ReadOnly = true;
+            this.AverageAfterQuestion.Width = 200;
+            // 
+            // Slope
+            // 
+            this.Slope.HeaderText = "Slope";
+            this.Slope.Name = "Slope";
+            this.Slope.ReadOnly = true;
+            // 
+            // Tag
+            // 
+            this.Tag.HeaderText = "Tag";
+            this.Tag.Name = "Tag";
+            this.Tag.ReadOnly = true;
             // 
             // label16
             // 
@@ -435,20 +469,20 @@
             this.EB_Q1CHRT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.EB_Q1CHRT.BorderlineWidth = 0;
             this.EB_Q1CHRT.BorderSkin.BorderWidth = 0;
-            chartArea1.AxisX.MajorGrid.Enabled = false;
-            chartArea1.AxisY.MajorGrid.Enabled = false;
-            chartArea1.Name = "EB_Q1BlinksCHRT";
-            this.EB_Q1CHRT.ChartAreas.Add(chartArea1);
+            chartArea2.AxisX.MajorGrid.Enabled = false;
+            chartArea2.AxisY.MajorGrid.Enabled = false;
+            chartArea2.Name = "EB_Q1BlinksCHRT";
+            this.EB_Q1CHRT.ChartAreas.Add(chartArea2);
             this.EB_Q1CHRT.Location = new System.Drawing.Point(18, 114);
             this.EB_Q1CHRT.Name = "EB_Q1CHRT";
             this.EB_Q1CHRT.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Grayscale;
-            series1.BorderWidth = 0;
-            series1.ChartArea = "EB_Q1BlinksCHRT";
-            series1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series1.MarkerBorderWidth = 0;
-            series1.Name = "Blinks";
-            this.EB_Q1CHRT.Series.Add(series1);
-            this.EB_Q1CHRT.Size = new System.Drawing.Size(622, 252);
+            series2.BorderWidth = 0;
+            series2.ChartArea = "EB_Q1BlinksCHRT";
+            series2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series2.MarkerBorderWidth = 0;
+            series2.Name = "Blinks";
+            this.EB_Q1CHRT.Series.Add(series2);
+            this.EB_Q1CHRT.Size = new System.Drawing.Size(636, 252);
             this.EB_Q1CHRT.TabIndex = 37;
             this.EB_Q1CHRT.Text = "chart1";
             // 
@@ -472,7 +506,7 @@
             this.TI_MainPNL.Controls.Add(this.label4);
             this.TI_MainPNL.Location = new System.Drawing.Point(35, 124);
             this.TI_MainPNL.Name = "TI_MainPNL";
-            this.TI_MainPNL.Size = new System.Drawing.Size(679, 653);
+            this.TI_MainPNL.Size = new System.Drawing.Size(693, 653);
             this.TI_MainPNL.TabIndex = 18;
             // 
             // label20
@@ -548,8 +582,9 @@
             this.EBTI_MainPNL.Controls.Add(this.label19);
             this.EBTI_MainPNL.Location = new System.Drawing.Point(35, 124);
             this.EBTI_MainPNL.Name = "EBTI_MainPNL";
-            this.EBTI_MainPNL.Size = new System.Drawing.Size(679, 653);
+            this.EBTI_MainPNL.Size = new System.Drawing.Size(693, 653);
             this.EBTI_MainPNL.TabIndex = 40;
+            this.EBTI_MainPNL.Visible = false;
             // 
             // label30
             // 
@@ -661,61 +696,29 @@
             this.label19.TabIndex = 39;
             this.label19.Text = "EBTI";
             // 
-            // QuestionNumber
-            // 
-            this.QuestionNumber.HeaderText = "No.";
-            this.QuestionNumber.Name = "QuestionNumber";
-            this.QuestionNumber.ReadOnly = true;
-            this.QuestionNumber.Width = 50;
-            // 
-            // AverageNormalBlinks
-            // 
-            this.AverageNormalBlinks.HeaderText = "Avg. Normal Blinks";
-            this.AverageNormalBlinks.Name = "AverageNormalBlinks";
-            this.AverageNormalBlinks.ReadOnly = true;
-            this.AverageNormalBlinks.Width = 200;
-            // 
-            // AverageAfterQuestion
-            // 
-            this.AverageAfterQuestion.HeaderText = "Avg. After-Question Blinks";
-            this.AverageAfterQuestion.Name = "AverageAfterQuestion";
-            this.AverageAfterQuestion.ReadOnly = true;
-            this.AverageAfterQuestion.Width = 200;
-            // 
-            // Slope
-            // 
-            this.Slope.HeaderText = "Slope";
-            this.Slope.Name = "Slope";
-            this.Slope.ReadOnly = true;
-            // 
-            // Tag
-            // 
-            this.Tag.HeaderText = "Tag";
-            this.Tag.Name = "Tag";
-            this.Tag.ReadOnly = true;
-            // 
             // Report
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1024, 814);
+            this.ClientSize = new System.Drawing.Size(1038, 828);
             this.ControlBox = false;
             this.Controls.Add(this.EBTI_MainLBL);
             this.Controls.Add(this.TI_MainLBL);
             this.Controls.Add(this.EB_MainLBL);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.TI_MainPNL);
             this.Controls.Add(this.EB_MainPNL);
             this.Controls.Add(this.EBTI_MainPNL);
-            this.Controls.Add(this.TI_MainPNL);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MinimumSize = new System.Drawing.Size(1040, 830);
             this.Name = "Report";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Report_FormClosing);
             this.Load += new System.EventHandler(this.Report_Load);
-            this.SizeChanged += new System.EventHandler(this.Report_SizeChanged);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Report_KeyDown);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Drag_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Drag_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Drag_MouseUp);
