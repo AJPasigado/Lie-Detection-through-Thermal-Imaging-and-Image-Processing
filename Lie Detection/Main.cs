@@ -98,9 +98,14 @@ namespace Lie_Detection {
             }
             else if (e.KeyCode.ToString() == "F11")
             {
-                EB_EndSession(); //End the eye blink session
-                IN_SESSION = false; //Announce that the session is done
-                LoadReport(); //Loads the Report Form
+                if (EB_RealtimeLogTXBX.Text != String.Empty) {
+                    EB_EndSession(); //End the eye blink session
+                    IN_SESSION = false; //Announce that the session is done
+                    LoadReport(); //Loads the Report Form
+                } else
+                {
+                    MessageBox.Show("Please start a session first before generating a report.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
 
             }
             else if (e.KeyCode.ToString() == "F12")
@@ -191,7 +196,7 @@ namespace Lie_Detection {
 
         private void EB_EndSession()
         {
-            CAM_CAPTURE.Dispose(); //Turn off the camera after session
+            if (CAM_CAPTURE != null) CAM_CAPTURE.Dispose(); //Turn off the camera after session
             EB_FromFileBTN.Visible = true; //Enable loading from file
 
             EB_AverageEyeBlinkLBL.Text = "";

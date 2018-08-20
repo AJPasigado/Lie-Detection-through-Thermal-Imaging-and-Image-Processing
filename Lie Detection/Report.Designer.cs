@@ -29,9 +29,6 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -54,8 +51,8 @@
             this.Slope = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label16 = new System.Windows.Forms.Label();
-            this.EB_AfterQuestionAveLBL = new System.Windows.Forms.Label();
-            this.EB_NormalAverageLBL = new System.Windows.Forms.Label();
+            this.EB_QuestionsCountLBL = new System.Windows.Forms.Label();
+            this.EB_ModelAccuracyLBL = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.EB_Q1CHRT = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -90,9 +87,6 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label10);
@@ -104,39 +98,9 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(278, 844);
             this.panel1.TabIndex = 5;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(104, 246);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(55, 32);
-            this.label11.TabIndex = 18;
-            this.label11.Text = "F11";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(46, 279);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(103, 15);
-            this.label13.TabIndex = 16;
-            this.label13.Text = "TO PRINT REPORT";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(42, 246);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(69, 32);
-            this.label14.TabIndex = 15;
-            this.label14.Text = "Press";
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Drag_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Drag_MouseMove);
+            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Drag_MouseUp);
             // 
             // label7
             // 
@@ -265,8 +229,8 @@
             this.EB_MainPNL.Controls.Add(this.panel2);
             this.EB_MainPNL.Controls.Add(this.EB_ResultDTGRD);
             this.EB_MainPNL.Controls.Add(this.label16);
-            this.EB_MainPNL.Controls.Add(this.EB_AfterQuestionAveLBL);
-            this.EB_MainPNL.Controls.Add(this.EB_NormalAverageLBL);
+            this.EB_MainPNL.Controls.Add(this.EB_QuestionsCountLBL);
+            this.EB_MainPNL.Controls.Add(this.EB_ModelAccuracyLBL);
             this.EB_MainPNL.Controls.Add(this.label15);
             this.EB_MainPNL.Controls.Add(this.label12);
             this.EB_MainPNL.Controls.Add(this.EB_Q1CHRT);
@@ -418,27 +382,27 @@
             this.label16.TabIndex = 42;
             this.label16.Text = "Eye Blinks Frequency per Question";
             // 
-            // EB_AfterQuestionAveLBL
+            // EB_QuestionsCountLBL
             // 
-            this.EB_AfterQuestionAveLBL.AutoSize = true;
-            this.EB_AfterQuestionAveLBL.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.EB_AfterQuestionAveLBL.ForeColor = System.Drawing.Color.Black;
-            this.EB_AfterQuestionAveLBL.Location = new System.Drawing.Point(246, 77);
-            this.EB_AfterQuestionAveLBL.Name = "EB_AfterQuestionAveLBL";
-            this.EB_AfterQuestionAveLBL.Size = new System.Drawing.Size(22, 15);
-            this.EB_AfterQuestionAveLBL.TabIndex = 41;
-            this.EB_AfterQuestionAveLBL.Text = "2.4";
+            this.EB_QuestionsCountLBL.AutoSize = true;
+            this.EB_QuestionsCountLBL.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.EB_QuestionsCountLBL.ForeColor = System.Drawing.Color.Black;
+            this.EB_QuestionsCountLBL.Location = new System.Drawing.Point(246, 77);
+            this.EB_QuestionsCountLBL.Name = "EB_QuestionsCountLBL";
+            this.EB_QuestionsCountLBL.Size = new System.Drawing.Size(22, 15);
+            this.EB_QuestionsCountLBL.TabIndex = 41;
+            this.EB_QuestionsCountLBL.Text = "2.4";
             // 
-            // EB_NormalAverageLBL
+            // EB_ModelAccuracyLBL
             // 
-            this.EB_NormalAverageLBL.AutoSize = true;
-            this.EB_NormalAverageLBL.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.EB_NormalAverageLBL.ForeColor = System.Drawing.Color.Black;
-            this.EB_NormalAverageLBL.Location = new System.Drawing.Point(246, 54);
-            this.EB_NormalAverageLBL.Name = "EB_NormalAverageLBL";
-            this.EB_NormalAverageLBL.Size = new System.Drawing.Size(22, 15);
-            this.EB_NormalAverageLBL.TabIndex = 40;
-            this.EB_NormalAverageLBL.Text = "1.2";
+            this.EB_ModelAccuracyLBL.AutoSize = true;
+            this.EB_ModelAccuracyLBL.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.EB_ModelAccuracyLBL.ForeColor = System.Drawing.Color.Black;
+            this.EB_ModelAccuracyLBL.Location = new System.Drawing.Point(246, 54);
+            this.EB_ModelAccuracyLBL.Name = "EB_ModelAccuracyLBL";
+            this.EB_ModelAccuracyLBL.Size = new System.Drawing.Size(22, 15);
+            this.EB_ModelAccuracyLBL.TabIndex = 40;
+            this.EB_ModelAccuracyLBL.Text = "1.2";
             // 
             // label15
             // 
@@ -447,9 +411,9 @@
             this.label15.ForeColor = System.Drawing.Color.Black;
             this.label15.Location = new System.Drawing.Point(15, 77);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(138, 15);
+            this.label15.Size = new System.Drawing.Size(124, 15);
             this.label15.TabIndex = 39;
-            this.label15.Text = "Eye blinks after question:";
+            this.label15.Text = "Number of Questions:";
             // 
             // label12
             // 
@@ -458,9 +422,9 @@
             this.label12.ForeColor = System.Drawing.Color.Black;
             this.label12.Location = new System.Drawing.Point(15, 54);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(167, 15);
+            this.label12.Size = new System.Drawing.Size(142, 15);
             this.label12.TabIndex = 38;
-            this.label12.Text = "Average number of eye blinks:";
+            this.label12.Text = "Training Model Accuracy:";
             // 
             // EB_Q1CHRT
             // 
@@ -708,9 +672,9 @@
             this.Controls.Add(this.EB_MainLBL);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.TI_MainPNL);
             this.Controls.Add(this.EB_MainPNL);
             this.Controls.Add(this.EBTI_MainPNL);
+            this.Controls.Add(this.TI_MainPNL);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MinimumSize = new System.Drawing.Size(1040, 830);
@@ -740,9 +704,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
@@ -755,8 +716,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel EB_MainPNL;
         private System.Windows.Forms.Panel TI_MainPNL;
-        private System.Windows.Forms.Label EB_AfterQuestionAveLBL;
-        private System.Windows.Forms.Label EB_NormalAverageLBL;
+        private System.Windows.Forms.Label EB_QuestionsCountLBL;
+        private System.Windows.Forms.Label EB_ModelAccuracyLBL;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataVisualization.Charting.Chart EB_Q1CHRT;

@@ -27,7 +27,7 @@ namespace Lie_Detection {
                 new Slopes() { thermalSlope = 1.0, eyesSlope = 1.3, result = false } ,
                 new Slopes() { thermalSlope = 1.0, eyesSlope = 1.9, result = true }
             };
-            EBTI_learned = Learner.Learn(sl, 0.8, 1000, EBTI_generator);
+            EBTI_learned = Learner.Learn(sl, 1, 1000, EBTI_generator);
             EBTI_model = EBTI_learned.Model;
             return EBTI_learned.Accuracy;
         }
@@ -60,7 +60,7 @@ namespace Lie_Detection {
                 while ((line = lines.ReadLine()) != null)
                 {
                     var values = line.Split(',');
-                    listSlope.Add(new Slopes() { eyesSlope = Double.Parse(values[0]), result = Boolean.Parse(values[1]) });
+                    listSlope.Add(new Slopes() { thermalSlope = 0, eyesSlope = Double.Parse(values[0]), result = Boolean.Parse(values[1]) });
                 }
             }
 
@@ -74,7 +74,7 @@ namespace Lie_Detection {
 
         public bool EB_Predict(double slope)
         {
-            return EB_model.Predict(new Slopes() { eyesSlope = slope }).result;
+            return EB_model.Predict(new Slopes() { thermalSlope = 0, eyesSlope = slope }).result;
         }
 
 
