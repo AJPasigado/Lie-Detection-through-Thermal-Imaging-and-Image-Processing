@@ -105,7 +105,7 @@ namespace Lie_Detection {
 
         private void EBTI_MainLBL_MouseLeave(object sender, EventArgs e)
         {
-            if (mode == 2) TI_MainLBL.ForeColor = Color.Silver;
+            if (mode == 2) EBTI_MainLBL.ForeColor = Color.Silver;
         }
 
         private void EBTI_MainLBL_MouseClick(object sender, MouseEventArgs e)

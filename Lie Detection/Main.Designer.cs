@@ -24,7 +24,6 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.EB_VideoFeedIB = new Emgu.CV.UI.ImageBox();
             this.EB_LBL1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -502,7 +501,6 @@
             this.EB_RealtimeLogTXBX.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.EB_RealtimeLogTXBX.Size = new System.Drawing.Size(304, 223);
             this.EB_RealtimeLogTXBX.TabIndex = 10;
-            this.EB_RealtimeLogTXBX.Text = resources.GetString("EB_RealtimeLogTXBX.Text");
             // 
             // imageBox1
             // 

@@ -51,7 +51,7 @@ namespace Lie_Detection {
         {
             EB_generator.Descriptor = Descriptor.Create<Slopes>();
 
-            var reader = Properties.Resources.EB_training;
+            var reader = Properties.Resources.EB_TrainingSet;
             List<Slopes> listSlope = new List<Slopes>();
 
             using (StringReader lines = new StringReader(reader))

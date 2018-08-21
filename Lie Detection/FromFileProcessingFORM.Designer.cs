@@ -89,7 +89,7 @@
             this.textBox1.Size = new System.Drawing.Size(487, 68);
             this.textBox1.TabIndex = 34;
             this.textBox1.Text = "Insert the following to their desired positions:\r\n\r\n=== WATCHING/ASKING ===\r\n=== " +
-    "ANSWERING ===\r\n";
+    "ANSWERING ===";
             // 
             // CancelBTN
             // 
