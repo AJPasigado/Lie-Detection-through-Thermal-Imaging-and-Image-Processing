@@ -224,7 +224,6 @@ namespace Lie_Detection {
                 MessageBox.Show("unable to read from webcam, error: " + Environment.NewLine + Environment.NewLine +
                                 ex.Message + Environment.NewLine + Environment.NewLine +
                                 "exiting program");
-                Environment.Exit(0);
                 return;
             }
             Application.Idle += EB_GetFrameProcess; //Adds the method that processes live data
@@ -296,7 +295,6 @@ namespace Lie_Detection {
                 EB_StartSession(); 
                 EB_FramesTimer.Start(); //The timer that process the frames
             }
-
         }
 
         private void EB_FramesTimer_Tick(object sender, EventArgs e)

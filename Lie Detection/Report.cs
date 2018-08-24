@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -9,8 +10,6 @@ namespace Lie_Detection {
     public partial class Report : Form {
         public string EB_data;
         int mode = 0;
-
-        NaiveBayes nb = new NaiveBayes();
 
         #region Form Properties and Methods
         public Main reference = new Main();
@@ -79,7 +78,7 @@ namespace Lie_Detection {
         }
 
         private void EB_MainLBL_MouseLeave(object sender, EventArgs e) {
-            if (mode == 0) EB_MainLBL.ForeColor = Color.Silver;
+            if (mode != 1) EB_MainLBL.ForeColor = Color.Silver;
         }
 
         private void EB_MainLBL_MouseClick(object sender, MouseEventArgs e) {
@@ -91,7 +90,7 @@ namespace Lie_Detection {
         }
 
         private void TI_MainLBL_MouseLeave(object sender, EventArgs e) {
-            if (mode == 1) TI_MainLBL.ForeColor = Color.Silver;
+            if (mode != 0) TI_MainLBL.ForeColor = Color.Silver;
         }
 
         private void TI_MainLBL_MouseClick(object sender, MouseEventArgs e) {
@@ -105,7 +104,7 @@ namespace Lie_Detection {
 
         private void EBTI_MainLBL_MouseLeave(object sender, EventArgs e)
         {
-            if (mode == 2) EBTI_MainLBL.ForeColor = Color.Silver;
+            if (mode != 2) EBTI_MainLBL.ForeColor = Color.Silver;
         }
 
         private void EBTI_MainLBL_MouseClick(object sender, MouseEventArgs e)
@@ -229,13 +228,21 @@ namespace Lie_Detection {
             } //End of String Reader
 
             EB_QuestionsCountLBL.Text = finalAverageList.Count.ToString();
-            EB_ModelAccuracyLBL.Text = (nb.EB_GenerateModel() * 100).ToString("#.00"); //Generate the Eye Blink model for NaiveBayes
+           
+            EB_ModelAccuracyLBL.Text = EB_NaiveBayesModel(); //Generate the Eye Blink model for NaiveBayes
+
+            double[] slope = new double[finalAfterList.Count()];
+            for (int i = 0; i < finalAfterList.Count(); i++) {
+                slope[i] = finalAfterList[i] / finalAverageList[i];
+            }
+
+            string[] result = EB_NaiveBayesPredict(slope);
 
             for (int i = 0; i < finalAverageList.Count; i++)
             {
                 //Display the result in the data grid
-                EB_ResultDTGRD.Rows.Add(i + 1, finalAverageList[i].ToString("#.00"), finalAfterList[i].ToString("#.00"), (finalAfterList[i] / finalAverageList[i]).ToString("#.00"),
-                        nb.EB_Predict(finalAfterList[i] / finalAverageList[i]) ? "Lie" : "Truth");
+                EB_ResultDTGRD.Rows.Add(i + 1, finalAverageList[i].ToString("#.00"), finalAfterList[i].ToString("#.00"), (slope[i]).ToString("#.00"),
+                        bool.Parse(result[i]) ? "Lie" : "Truth");
             }
         }
 
@@ -245,6 +252,95 @@ namespace Lie_Detection {
         }
 
         #endregion
+ 
+
+        // full path of python interpreter 
+        string python = @"C:\Users\ajpas\AppData\Local\Programs\Python\Python37\python.exe";
+
+        private string[] EB_NaiveBayesPredict(double[] slope) {
+            bool[] ret = new bool[finalAfterList.Count()];
+            string pass = string.Join(",", slope);
+            
+            // python app to call 
+            string myPythonApp = @"EB_NaiveBayesPredict.py";
+
+            // Create new process start info 
+            ProcessStartInfo myProcessStartInfo = new ProcessStartInfo(python);
+
+            // make sure we can read the output from stdout 
+            myProcessStartInfo.UseShellExecute = false;
+            myProcessStartInfo.RedirectStandardOutput = true;
+            myProcessStartInfo.CreateNoWindow = true;
+
+            // start python app with 3 arguments  
+            // 1st arguments is pointer to itself,  
+            // 2nd and 3rd are actual arguments we want to send 
+            myProcessStartInfo.Arguments = myPythonApp + " " + pass;
+
+            Process myProcess = new Process();
+            // assign start information to the process 
+            myProcess.StartInfo = myProcessStartInfo;
+
+            // start the process 
+            myProcess.Start();
+
+            // Read the standard output of the app we called.  
+            // in order to avoid deadlock we will read output first 
+            // and then wait for process terminate: 
+            StreamReader myStreamReader = myProcess.StandardOutput;
+            string myString = myStreamReader.ReadLine();
+
+            /*if you need to read multiple lines, you might use: 
+                string myString = myStreamReader.ReadToEnd() */
+
+            // wait exit signal from the app we called and then close it. 
+            myProcess.WaitForExit();
+            myProcess.Close();
+
+            // write the output we got from python app 
+            return myString.Split(',');
+        }
+
+        private string EB_NaiveBayesModel() {
+            // python app to call 
+            string myPythonApp = @"EB_NaiveBayesModel.py";
+
+            // Create new process start info 
+            ProcessStartInfo myProcessStartInfo = new ProcessStartInfo(python);
+
+            // make sure we can read the output from stdout 
+            myProcessStartInfo.UseShellExecute = false;
+            myProcessStartInfo.RedirectStandardOutput = true;
+            myProcessStartInfo.CreateNoWindow = true;
+
+            // start python app with 3 arguments  
+            // 1st arguments is pointer to itself,  
+            // 2nd and 3rd are actual arguments we want to send 
+            myProcessStartInfo.Arguments = myPythonApp;
+
+            Process myProcess = new Process();
+            // assign start information to the process 
+            myProcess.StartInfo = myProcessStartInfo;
+            
+            // start the process 
+            myProcess.Start();
+
+            // Read the standard output of the app we called.  
+            // in order to avoid deadlock we will read output first 
+            // and then wait for process terminate: 
+            StreamReader myStreamReader = myProcess.StandardOutput;
+            string myString = myStreamReader.ReadLine();
+
+            /*if you need to read multiple lines, you might use: 
+                string myString = myStreamReader.ReadToEnd() */
+
+            // wait exit signal from the app we called and then close it. 
+            myProcess.WaitForExit();
+            myProcess.Close();
+
+            // write the output we got from python app 
+            return myString;
+        }
 
     }
 }
