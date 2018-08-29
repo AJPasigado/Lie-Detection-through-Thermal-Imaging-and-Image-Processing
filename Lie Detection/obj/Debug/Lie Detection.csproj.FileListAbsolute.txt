@@ -45,7 +45,6 @@ D:\Documents\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\L
 D:\Documents\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\bin\Debug\Emgu.CV.World.xml
 D:\Documents\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\bin\Debug\numl.pdb
 D:\Documents\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\bin\Debug\numl.xml
-D:\Documents\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\obj\Debug\Lie Detection.csprojAssemblyReference.cache
 D:\Documents\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\obj\Debug\Lie_Detection.Main.resources
 D:\Documents\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\obj\Debug\Lie_Detection.Properties.Resources.resources
 D:\Documents\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\obj\Debug\Lie_Detection.Report.resources
@@ -58,3 +57,6 @@ D:\Documents\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\L
 D:\Documents\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\obj\Debug\Lie_Detection.About.resources
 D:\Documents\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\obj\Debug\Lie_Detection.FromFileProcessingFORM.resources
 D:\Documents\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\obj\Debug\Lie_Detection.Help.resources
+D:\Documents\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\bin\Debug\AForge.dll
+D:\Documents\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\bin\Debug\AForge.Imaging.dll
+D:\Documents\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\obj\Debug\Lie Detection.csprojAssemblyReference.cache

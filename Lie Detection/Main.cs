@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 
 /*
@@ -8,7 +9,19 @@ using System.Windows.Forms;
 
 using Emgu.CV;                  
 using Emgu.CV.CvEnum;         
-using Emgu.CV.Structure;        
+using Emgu.CV.Structure;
+
+/*
+    Thermal Image Imports
+*/
+
+using winusbdotnet.UsbDevices;
+using AForge.Imaging.Filters;
+using System.IO;
+using System.Linq;
+using System.Drawing.Imaging;
+using System.Globalization;
+using System.Runtime.InteropServices;
 
 namespace Lie_Detection {
     public partial class Main : Form {
@@ -18,6 +31,9 @@ namespace Lie_Detection {
         bool IN_SESSION = false;  //Check if there is a session in progress
         bool FROM_FILE = false; //Check if the session is done realtime or not
         private Shadow SHADOW = new Shadow(); //Adds a shadow effect on modals
+
+        SeekThermal thermal;
+        Thread thermalThread;
 
         #region Form Properties
 
@@ -89,6 +105,7 @@ namespace Lie_Detection {
             }
             else if (e.KeyCode.ToString() == "F9")
             {
+                TI_StartSession();
                 EB_StartSession(); //Starts the eye blink session
                 IN_SESSION = true; //Announce that the session is in progress
             }
@@ -143,6 +160,7 @@ namespace Lie_Detection {
 
         private void LoadReport()
         {
+            EB_RealtimeLogTXBX.AppendText("=== END SESSION ===" + Environment.NewLine);
             Report report = new Report
             {
                 reference = this,
@@ -201,7 +219,6 @@ namespace Lie_Detection {
 
             EB_AverageEyeBlinkLBL.Text = "";
             TOTAL_BLINKS = 0;
-            EB_RealtimeLogTXBX.AppendText("=== END SESSION ===" + Environment.NewLine);
 
             if (!FROM_FILE) Application.Idle -= EB_GetFrameProcess; //If realtime, removes the method that process live data
             else
@@ -334,5 +351,379 @@ namespace Lie_Detection {
 
         #endregion
 
+        private void TI_FromFileBTN_Click(object sender, EventArgs e) {
+            if (EB_OpenFileDBOX.ShowDialog() == DialogResult.OK) {
+                //Open a dailog box to search for a video file
+                IN_SESSION = true; //Start the session
+                FROM_FILE = true; //Indicate that the app is loading from a file
+            }
+        }
+
+        ThermalFrame TI_currentFrame, TI_lastUsableFrame;
+
+        bool TI_stopThread;
+        bool TI_grabExternalReference = false;
+        bool TI_firstAfterCal = false;
+        bool TI_usignExternalCal = false;
+        bool TI_autoSaveImg = false;
+        bool TI_isRunning = true;
+
+        string TI_localPath;
+        //string tempUnit;
+        public bool TI_progress = false;
+
+        ushort[] TI_arrID4 = new ushort[32448];
+        ushort[] TI_arrID1 = new ushort[32448];
+        ushort[] TI_arrID3 = new ushort[32448];
+
+        bool[] TI_badPixelArr = new bool[32448];
+
+        ushort[] TI_gMode = new ushort[1000];
+
+        ushort[,] TI_palleteArr = new ushort[1001, 3];//-> ushort
+
+        byte[] TI_imgBuffer = new byte[97344];
+
+        ushort TI_gModePeakIx = 0;
+        ushort TI_gModePeakCnt = 0;
+        ushort TI_gModeLeft = 0;
+        ushort TI_gModeRight = 0;
+        ushort TI_gModeLeftManual = 0;
+        ushort TI_gModeRightManual = 0;
+        ushort TI_avgID4 = 0;
+        ushort TI_avgID1 = 0;
+        ushort TI_maxTempRaw = 0;
+
+        double[] TI_gainCalArr = new double[32448];
+
+        Bitmap TI_bitmap = new Bitmap(208, 156, PixelFormat.Format24bppRgb);
+        Bitmap TI_croppedBitmap = new Bitmap(206, 156, PixelFormat.Format24bppRgb);
+        public Bitmap TI_bigBitmap = new Bitmap(412, 312, PixelFormat.Format24bppRgb);
+        BitmapData TI_bitmap_data;
+
+        ResizeBilinear bilinearResize = new ResizeBilinear(412, 312);
+        Crop cropFilter = new Crop(new Rectangle(0, 0, 206, 156));
+
+        private void TI_StartSession() {
+            TI_localPath = Directory.GetCurrentDirectory().ToString();
+            Directory.CreateDirectory(TI_localPath + @"\export");
+
+            var device = SeekThermal.Enumerate().FirstOrDefault();
+            if (device == null) {
+                MessageBox.Show("No Seek Thermal devices found.");
+                return;
+            }
+            thermal = new SeekThermal(device);
+
+            thermalThread = new Thread(TI_ThreadProc);
+            thermalThread.IsBackground = true;
+            thermalThread.Start();
+        }
+
+        void TI_ThreadProc() {
+            while (!TI_stopThread && thermal != null) {
+                TI_progress = false;
+                TI_currentFrame = thermal.GetFrameBlocking();
+                
+                switch (TI_currentFrame.StatusByte) {
+                    case 4://gain calibration
+                        TI_arrID4 = TI_currentFrame.RawDataU16;
+                        TI_avgID4 = TI_GetMode(TI_arrID4);
+
+                        for (int i = 0; i < 32448; i++) {
+                            if (TI_arrID4[i] > 2000 && TI_arrID4[i] < 8000) {
+                                TI_gainCalArr[i] = TI_avgID4 / (double)TI_arrID4[i];
+                            } else {
+                                TI_gainCalArr[i] = 1;
+                                TI_badPixelArr[i] = true;
+                            }
+                        }
+                        break;
+
+                    case 1://shutter calibration
+                        TI_markBadPixels();
+                        if (!TI_usignExternalCal) {
+                            TI_arrID1 = TI_currentFrame.RawDataU16;
+                        }
+                        TI_firstAfterCal = true;
+                        break;
+
+                    case 3://image frame
+                        TI_markBadPixels();
+                        if (TI_grabExternalReference)//use this image as reference
+                        {
+                            TI_grabExternalReference = false;
+                            TI_usignExternalCal = true;
+                            TI_arrID1 = TI_currentFrame.RawDataU16;
+                        } else {
+                            //MessageBox.Show("current frame status " + currentFrame);
+                            TI_arrID3 = TI_currentFrame.RawDataU16;
+
+
+                            for (int i = 0; i < 32448; i++) {
+                                if (TI_arrID3[i] > 2000) {
+                                    TI_arrID3[i] = (ushort)((TI_arrID3[i] - TI_arrID1[i]) * TI_gainCalArr[i] + 7500);
+                                } else {
+                                    TI_arrID3[i] = 0;
+                                    TI_badPixelArr[i] = true;
+                                }
+                            }
+
+                            TI_fixBadPixels();
+                            TI_removeNoise();
+                            TI_getHistogram();
+                            TI_fillImgBuffer();
+                            TI_lastUsableFrame = TI_currentFrame;
+                            TI_progress = true;
+                        }
+                        break;
+
+                    default:
+                        break;
+                }
+                
+                if (TI_progress) {
+                    Invalidate();
+                }
+            }
+        }
+        private void TI_fillImgBuffer() {
+            ushort v = 0;
+            ushort loc = 0;
+
+            double iScaler;
+            iScaler = (double)(TI_gModeRight - TI_gModeLeft) / 1000;
+
+            for (int i = 0; i < 32448; i++) {
+                v = TI_arrID3[i];
+                if (v < TI_gModeLeft) v = TI_gModeLeft;
+                if (v > TI_gModeRight) v = TI_gModeRight;
+                v = (ushort)(v - TI_gModeLeft);
+                loc = (ushort)(v / iScaler);
+
+                TI_imgBuffer[i * 3] = (byte)TI_palleteArr[loc, 2];
+                TI_imgBuffer[i * 3 + 1] = (byte)TI_palleteArr[loc, 1];
+                TI_imgBuffer[i * 3 + 2] = (byte)TI_palleteArr[loc, 0];
+            }
+        }
+
+        private void TI_markBadPixels() {
+            ushort[] RawDataArr = TI_currentFrame.RawDataU16;
+
+            for (int i = 0; i < RawDataArr.Length; i++) {
+                if (RawDataArr[i] < 2000 || RawDataArr[i] > 22000) {
+                    TI_badPixelArr[i] = true;
+                }
+            }
+        }
+
+        private void TI_fixBadPixels() {
+            ushort x = 0;
+            ushort y = 0;
+            ushort i = 0;
+            ushort nr = 0;
+            ushort val = 0;
+
+            for (y = 0; y < 156; y++) {
+                for (x = 0; x < 208; x++, i++) {
+                    if (TI_badPixelArr[i] && x < 206) {
+
+                        val = 0;
+                        nr = 0;
+
+                        if (y > 0 && !TI_badPixelArr[i - 208]) //top pixel
+                        {
+                            val += TI_arrID3[i - 208];
+                            ++nr;
+                        }
+
+                        if (y < 155 && !TI_badPixelArr[i + 208]) // bottom pixel
+                        {
+                            val += TI_arrID3[i + 208];
+                            ++nr;
+                        }
+
+                        if (x > 0 && !TI_badPixelArr[i - 1]) //Left pixel
+                        {
+                            val += TI_arrID3[i - 1];
+                            ++nr;
+                        }
+
+                        if (x < 205 && !TI_badPixelArr[i + 1]) //Right pixel
+                        {
+                            val += TI_arrID3[i + 1];
+                            ++nr;
+                        }
+
+                        if (nr > 0) {
+                            val /= nr;
+                            TI_arrID3[i] = val;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void TI_removeNoise() {
+            ushort x = 0;
+            ushort y = 0;
+            ushort i = 0;
+            ushort val = 0;
+            ushort[] arrColor = new ushort[4];
+
+            for (y = 0; y < 156; y++) {
+                for (x = 0; x < 208; x++) {
+                    if (x > 0 && x < 206 && y > 0 && y < 155) {
+                        arrColor[0] = TI_arrID3[i - 208];//top
+                        arrColor[1] = TI_arrID3[i + 208];//bottom
+                        arrColor[2] = TI_arrID3[i - 1];//left
+                        arrColor[3] = TI_arrID3[i + 1];//right
+
+                        val = (ushort)((arrColor[0] + arrColor[1] + arrColor[2] + arrColor[3] - TI_Highest(arrColor) - TI_Lowest(arrColor)) / 2);
+
+                        if (Math.Abs(val - TI_arrID3[i]) > 100 && val != 0) {
+                            TI_arrID3[i] = val;
+                        }
+                    }
+                    i++;
+                }
+            }
+
+        }
+
+        private ushort TI_Highest(ushort[] numbers) {
+            ushort highest = 0;
+
+            for (ushort i = 0; i < 4; i++) {
+                if (numbers[i] > highest)
+                    highest = numbers[i];
+            }
+
+            return highest;
+        }
+
+        private ushort TI_Lowest(ushort[] numbers) {
+            ushort lowest = 30000;
+
+            for (ushort i = 0; i < 4; i++) {
+                if (numbers[i] < lowest)
+                    lowest = numbers[i];
+            }
+
+            return lowest;
+        }
+
+        public void TI_cameraExit() {
+            TI_stopThread = true;
+            if (thermal != null) {
+                thermalThread.Join(500);
+                thermal.Deinit();
+            }
+        }
+
+        public void TI_savePerFrame() {
+            TI_autoSaveImg = !TI_autoSaveImg;
+        }
+
+        public ushort TI_GetMode(ushort[] arr) {
+            ushort[] arrMode = new ushort[320];
+            ushort topPos = 0;
+            for (ushort i = 0; i < 32448; i++) {
+                if ((arr[i] > 1000) && (arr[i] / 100 != 0)) arrMode[(arr[i]) / 100]++;
+            }
+
+            topPos = (ushort)Array.IndexOf(arrMode, arrMode.Max());
+
+            return (ushort)(topPos * 100);
+        }
+
+        public void TI_getHistogram() {
+            TI_maxTempRaw = TI_arrID3.Max();
+            ushort[] arrMode = new ushort[2100];
+            ushort topPos = 0;
+            for (ushort i = 0; i < 32448; i++) {
+                if ((TI_arrID3[i] > 1000) && (TI_arrID3[i] / 10 != 0) && !TI_badPixelArr[i]) arrMode[(TI_arrID3[i]) / 10]++;
+            }
+
+            topPos = (ushort)Array.IndexOf(arrMode, arrMode.Max());
+
+            TI_gMode = arrMode;
+            TI_gModePeakCnt = arrMode.Max();
+            TI_gModePeakIx = (ushort)(topPos * 10);
+
+            //lower it to 100px;
+            for (ushort i = 0; i < 2100; i++) {
+                TI_gMode[i] = (ushort)((double)arrMode[i] / TI_gModePeakCnt * 100);
+            }
+
+            TI_gModeLeft = TI_gModePeakIx;
+            TI_gModeRight = TI_gModePeakIx;
+            //find left border:
+            for (ushort i = 0; i < topPos; i++) {
+                if (arrMode[i] > arrMode[topPos] * 0.01) {
+                    TI_gModeLeft = (ushort)(i * 10);
+                    break;
+                }
+            }
+
+            //find right border:
+            for (ushort i = 2099; i > topPos; i--) {
+                if (arrMode[i] > arrMode[topPos] * 0.01) {
+                    TI_gModeRight = (ushort)(i * 10);
+                    break;
+                }
+            }
+            TI_gModeLeftManual = TI_gModeLeft;
+            TI_gModeRightManual = TI_gModeRight;
+        }
+
+        public void TI_pauseFrame() {
+            if (TI_isRunning) {
+                thermalThread.Suspend();
+                //start
+            } else {
+                thermalThread.Resume();
+                //stop
+            }
+            TI_isRunning = !TI_isRunning;
+        }
+
+        private string TI_rawToTemp(int val) {
+            double tempVal = 0;
+
+            tempVal = (double)(val - 5950) / 40 + 273.15;
+            tempVal = tempVal - 273.15;//C
+
+            return tempVal.ToString("F1", CultureInfo.InvariantCulture);
+        }
+
+        public void TI_getFrames(object sender, PaintEventArgs e) {
+            //MessageBox.Show(" " + lastUsableFrame);
+            if (TI_lastUsableFrame != null) {
+                string minTemp = TI_rawToTemp(TI_gModeLeft);
+                string maxTemp = TI_rawToTemp(TI_gModeRight);
+
+                /*lblMinTemp.Text = minTemp;
+                lblMaxTemp.Text = maxTemp;
+
+                lblLeft.Text = gModeLeft.ToString();
+                lblRight.Text = gModeRight.ToString();
+                label2.Text = maxTempRaw.ToString();*/
+
+                TI_bitmap_data = TI_bitmap.LockBits(new Rectangle(0, 0, TI_bitmap.Width, TI_bitmap.Height), ImageLockMode.WriteOnly, PixelFormat.Format24bppRgb);
+                Marshal.Copy(TI_imgBuffer, 0, TI_bitmap_data.Scan0, TI_imgBuffer.Length);
+                TI_bitmap.UnlockBits(TI_bitmap_data);
+
+                //crop image to 206x156 line81 Crop cropFilter = new Crop(new Rectangle(0, 0, 206, 156));
+                TI_croppedBitmap = cropFilter.Apply(TI_bitmap);
+
+                //upscale 200 % line83 ResizeBilinear bilinearResize = new ResizeBilinear(412, 312);
+                TI_bigBitmap = bilinearResize.Apply(TI_croppedBitmap);
+
+                TI_VideoFeedIB.Image = new Image<Bgr, Byte>(TI_bigBitmap);
+                //MessageBox.Show("test working " + bigBitmap);
+                if (TI_autoSaveImg) TI_bigBitmap.Save(TI_localPath + @"\export\seek_" + DateTime.Now.ToString("yyyy-MM-dd_hh-mm-ss_fff") + ".png");
+            }
+        }
     }
 }

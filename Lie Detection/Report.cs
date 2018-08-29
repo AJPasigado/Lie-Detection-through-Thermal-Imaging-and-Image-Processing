@@ -10,6 +10,7 @@ namespace Lie_Detection {
     public partial class Report : Form {
         public string EB_data;
         int mode = 0;
+        string python = @"C:\Users\ajpas\AppData\Local\Programs\Python\Python37\python.exe";
 
         #region Form Properties and Methods
         public Main reference = new Main();
@@ -129,120 +130,115 @@ namespace Lie_Detection {
             int flag = 0; //Indicates if asking or answering
             TimeSpan currentTime = new TimeSpan(0,0,0);
             int blinks = 0;
-            
-            using (StringReader reader = new StringReader(a))
-            {
-                //Start reading the lines
-                string line;
-                while ((line = reader.ReadLine()) != null)
-                {
 
-                    if (line.Equals("=== WATCHING/ASKING ==="))
-                    {
-                        if (blinks != 0)
-                        {
-                            EB_AddToGraph(currentTime.ToString(), blinks);
-                            tempList.Add(blinks);
-                            finalAfterList.Add(tempList.Max());
-                            tempList.Clear();
-                        }
+            try {
+                using (StringReader reader = new StringReader(a)) {
+                    //Start reading the lines
+                    string line;
+                    while ((line = reader.ReadLine()) != null) {
 
-                        initial = true;
-                        blinks = 0;
-                        flag = 1;
-                    }
-                    else if (line.Equals("=== ANSWERING ==="))
-                    {
-                        if (blinks != 0)
-                        {
-                            EB_AddToGraph(currentTime.ToString(), blinks);
-                            tempList.Add(blinks);
-                            finalAverageList.Add(tempList.Sum() / tempList.Count);
-                            tempList.Clear();
-                        }
-
-                        initial = true;
-                        blinks = 0;
-                        flag = 2;
-                    }
-                    else if (line.Equals("=== END SESSION ==="))
-                    {
-                        if (blinks != 0)
-                        {
-                            EB_Q1CHRT.Series["Blinks"].Points[EB_AddToGraph(currentTime.ToString(), blinks)].Color = Color.FromArgb(151, 128, 128);
-                            tempList.Add(blinks);
-                            finalAfterList.Add(tempList.Max());
-                            tempList.Clear();
-                        }
-
-                        break;
-                    }
-                    else
-                    {
-                        if (initial)
-                        {
-                            //If it is the initial value, store the time (in seconds) in a temporary value
-                            //This is used to indicate which time to base the checker
-                            currentTime = new TimeSpan(
-                                Convert.ToInt32(line.Split('.')[0].Split(':')[0]), 
-                                Convert.ToInt32(line.Split('.')[0].Split(':')[1]),
-                                Convert.ToInt32(line.Split('.')[1])
-                                ); 
-                            initial = false;
-                        }
-
-                        if (new TimeSpan(
-                                Convert.ToInt32(line.Split('.')[0].Split(':')[0]),
-                                Convert.ToInt32(line.Split('.')[0].Split(':')[1]),
-                                Convert.ToInt32(line.Split('.')[1])
-                                ) <= currentTime)
-                        {
-                            //This is where the inital value is used
-                            //Compare the initial value with the current time and if it is not above four seconds, increment the blink counter
-                            blinks++;
-                        }
-                        else
-                        {
-
-
-                            int dataPoint = EB_AddToGraph(currentTime.ToString(), blinks);
-                            tempList.Add(blinks);
-
-                            if (flag == 2)
-                            {
-                                //If it is on answering mode, color the graph as red
-                                EB_Q1CHRT.Series["Blinks"].Points[dataPoint].Color = Color.FromArgb(151, 128, 128);
+                        if (line.Equals("=== WATCHING/ASKING ===")) {
+                            if (blinks != 0) {
+                                EB_AddToGraph(currentTime.ToString(), blinks);
+                                tempList.Add(blinks);
+                                finalAfterList.Add(tempList.Max());
+                                tempList.Clear();
                             }
 
-                            currentTime = new TimeSpan(
-                                Convert.ToInt32(line.Split('.')[0].Split(':')[0]),
-                                Convert.ToInt32(line.Split('.')[0].Split(':')[1]),
-                                Convert.ToInt32(line.Split('.')[1]) + 4
-                                );
-                            blinks = 1;
+                            initial = true;
+                            blinks = 0;
+                            flag = 1;
+                        } else if (line.Equals("=== ANSWERING ===")) {
+                            if (blinks != 0) {
+                                EB_AddToGraph(currentTime.ToString(), blinks);
+                                tempList.Add(blinks);
+                                finalAverageList.Add(tempList.Sum() / tempList.Count);
+                                tempList.Clear();
+                            }
+
+                            initial = true;
+                            blinks = 0;
+                            flag = 2;
+                        } else if (line.Equals("=== END SESSION ===")) {
+                            if (blinks != 0) {
+                                EB_Q1CHRT.Series["Blinks"].Points[EB_AddToGraph(currentTime.ToString(), blinks)].Color = Color.FromArgb(151, 128, 128);
+                                tempList.Add(blinks);
+                                finalAfterList.Add(tempList.Max());
+                                tempList.Clear();
+                            }
+
+                            break;
+                        } else {
+                            if (initial) {
+                                //If it is the initial value, store the time (in seconds) in a temporary value
+                                //This is used to indicate which time to base the checker
+                                currentTime = new TimeSpan(
+                                    Convert.ToInt32(line.Split('.')[0].Split(':')[0]),
+                                    Convert.ToInt32(line.Split('.')[0].Split(':')[1]),
+                                    Convert.ToInt32(line.Split('.')[1])
+                                    );
+                                initial = false;
+                            }
+
+                            if (new TimeSpan(
+                                    Convert.ToInt32(line.Split('.')[0].Split(':')[0]),
+                                    Convert.ToInt32(line.Split('.')[0].Split(':')[1]),
+                                    Convert.ToInt32(line.Split('.')[1])
+                                    ) <= currentTime) {
+                                //This is where the inital value is used
+                                //Compare the initial value with the current time and if it is not above four seconds, increment the blink counter
+                                blinks++;
+                            } else {
+
+
+                                int dataPoint = EB_AddToGraph(currentTime.ToString(), blinks);
+                                tempList.Add(blinks);
+
+                                if (flag == 2) {
+                                    //If it is on answering mode, color the graph as red
+                                    EB_Q1CHRT.Series["Blinks"].Points[dataPoint].Color = Color.FromArgb(151, 128, 128);
+                                }
+
+                                currentTime = new TimeSpan(
+                                    Convert.ToInt32(line.Split('.')[0].Split(':')[0]),
+                                    Convert.ToInt32(line.Split('.')[0].Split(':')[1]),
+                                    Convert.ToInt32(line.Split('.')[1]) + 4
+                                    );
+                                blinks = 1;
+                            }
                         }
-                    }
 
 
-                } //End of While-loop
-            } //End of String Reader
-
-            EB_QuestionsCountLBL.Text = finalAverageList.Count.ToString();
-           
-            EB_ModelAccuracyLBL.Text = EB_NaiveBayesModel(); //Generate the Eye Blink model for NaiveBayes
-
-            double[] slope = new double[finalAfterList.Count()];
-            for (int i = 0; i < finalAfterList.Count(); i++) {
-                slope[i] = finalAfterList[i] / finalAverageList[i];
+                    } //End of While-loop
+                } //End of String Reader
+            } catch (Exception e){
+                MessageBox.Show(e.Message, "Could not process data", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            string[] result = EB_NaiveBayesPredict(slope);
+            EB_QuestionsCountLBL.Text = finalAverageList.Count.ToString();
 
-            for (int i = 0; i < finalAverageList.Count; i++)
-            {
-                //Display the result in the data grid
-                EB_ResultDTGRD.Rows.Add(i + 1, finalAverageList[i].ToString("#.00"), finalAfterList[i].ToString("#.00"), (slope[i]).ToString("#.00"),
-                        bool.Parse(result[i]) ? "Lie" : "Truth");
+            try {
+                EB_ModelAccuracyLBL.Text = EB_NaiveBayesModel(); //Generate the Eye Blink model for NaiveBayes
+            } catch (Exception e) {
+                MessageBox.Show(e.Message, "Could not create Eye Blink Model", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+
+            try {
+                double[] slope = new double[finalAfterList.Count()];
+                for (int i = 0; i < finalAfterList.Count(); i++) {
+                    slope[i] = finalAfterList[i] / finalAverageList[i];
+                }
+
+                string[] result = EB_NaiveBayesPredict(slope);
+
+                for (int i = 0; i < finalAverageList.Count; i++) {
+                    //Display the result in the data grid
+                    EB_ResultDTGRD.Rows.Add(i + 1, finalAverageList[i].ToString("#.00"), finalAfterList[i].ToString("#.00"), (slope[i]).ToString("#.00"),
+                            bool.Parse(result[i]) ? "Lie" : "Truth");
+                }
+            } catch (Exception e) {
+                MessageBox.Show(e.Message, "Could not finish Eye Blink prediction", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -251,16 +247,10 @@ namespace Lie_Detection {
             return EB_Q1CHRT.Series["Blinks"].Points.AddXY(x, y);
         }
 
-        #endregion
- 
-
-        // full path of python interpreter 
-        string python = @"C:\Users\ajpas\AppData\Local\Programs\Python\Python37\python.exe";
-
         private string[] EB_NaiveBayesPredict(double[] slope) {
             bool[] ret = new bool[finalAfterList.Count()];
             string pass = string.Join(",", slope);
-            
+
             // python app to call 
             string myPythonApp = @"EB_NaiveBayesPredict.py";
 
@@ -321,7 +311,7 @@ namespace Lie_Detection {
             Process myProcess = new Process();
             // assign start information to the process 
             myProcess.StartInfo = myProcessStartInfo;
-            
+
             // start the process 
             myProcess.Start();
 
@@ -341,6 +331,13 @@ namespace Lie_Detection {
             // write the output we got from python app 
             return myString;
         }
+
+        #endregion
+
+        private void LoadThermalData() {
+
+        }
+
 
     }
 }

@@ -23,16 +23,16 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
@@ -63,7 +63,7 @@
             this.EB_Q1CHRT = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label8 = new System.Windows.Forms.Label();
             this.TI_MainPNL = new System.Windows.Forms.Panel();
-            this.label20 = new System.Windows.Forms.Label();
+            this.lbl1 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.EBTI_MainLBL = new System.Windows.Forms.Label();
@@ -78,22 +78,24 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.TI_Q1CHRT = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.TI_SummaryDataGRD = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.baseTemp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.afterQuestionTemp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TI_PeakTempLBL = new System.Windows.Forms.Label();
+            this.TI_AverageTempLBL = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.EB_MainPNL.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EB_ResultDTGRD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EB_Q1CHRT)).BeginInit();
             this.TI_MainPNL.SuspendLayout();
             this.EBTI_MainPNL.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TI_Q1CHRT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TI_SummaryDataGRD)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -309,14 +311,14 @@
             this.EB_ResultDTGRD.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.EB_ResultDTGRD.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.EB_ResultDTGRD.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.EB_ResultDTGRD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.EB_ResultDTGRD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.EB_ResultDTGRD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.EB_ResultDTGRD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.QuestionNumber,
@@ -324,27 +326,27 @@
             this.AverageAfterQuestion,
             this.Slope,
             this.Tag});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.EB_ResultDTGRD.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.EB_ResultDTGRD.DefaultCellStyle = dataGridViewCellStyle8;
             this.EB_ResultDTGRD.EnableHeadersVisualStyles = false;
             this.EB_ResultDTGRD.GridColor = System.Drawing.Color.White;
             this.EB_ResultDTGRD.Location = new System.Drawing.Point(14, 425);
             this.EB_ResultDTGRD.Name = "EB_ResultDTGRD";
             this.EB_ResultDTGRD.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.EB_ResultDTGRD.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.EB_ResultDTGRD.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.EB_ResultDTGRD.RowHeadersVisible = false;
             this.EB_ResultDTGRD.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.EB_ResultDTGRD.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -448,19 +450,19 @@
             this.EB_Q1CHRT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.EB_Q1CHRT.BorderlineWidth = 0;
             this.EB_Q1CHRT.BorderSkin.BorderWidth = 0;
-            chartArea1.AxisX.MajorGrid.Enabled = false;
-            chartArea1.AxisY.MajorGrid.Enabled = false;
-            chartArea1.Name = "EB_Q1BlinksCHRT";
-            this.EB_Q1CHRT.ChartAreas.Add(chartArea1);
+            chartArea3.AxisX.MajorGrid.Enabled = false;
+            chartArea3.AxisY.MajorGrid.Enabled = false;
+            chartArea3.Name = "EB_Q1BlinksCHRT";
+            this.EB_Q1CHRT.ChartAreas.Add(chartArea3);
             this.EB_Q1CHRT.Location = new System.Drawing.Point(18, 114);
             this.EB_Q1CHRT.Name = "EB_Q1CHRT";
             this.EB_Q1CHRT.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Grayscale;
-            series1.BorderWidth = 0;
-            series1.ChartArea = "EB_Q1BlinksCHRT";
-            series1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series1.MarkerBorderWidth = 0;
-            series1.Name = "Blinks";
-            this.EB_Q1CHRT.Series.Add(series1);
+            series3.BorderWidth = 0;
+            series3.ChartArea = "EB_Q1BlinksCHRT";
+            series3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series3.MarkerBorderWidth = 0;
+            series3.Name = "Blinks";
+            this.EB_Q1CHRT.Series.Add(series3);
             this.EB_Q1CHRT.Size = new System.Drawing.Size(636, 252);
             this.EB_Q1CHRT.TabIndex = 37;
             this.EB_Q1CHRT.Text = "chart1";
@@ -479,10 +481,12 @@
             // TI_MainPNL
             // 
             this.TI_MainPNL.AutoScroll = true;
-            this.TI_MainPNL.Controls.Add(this.dataGridView1);
+            this.TI_MainPNL.Controls.Add(this.TI_PeakTempLBL);
+            this.TI_MainPNL.Controls.Add(this.TI_AverageTempLBL);
+            this.TI_MainPNL.Controls.Add(this.TI_SummaryDataGRD);
             this.TI_MainPNL.Controls.Add(this.label4);
-            this.TI_MainPNL.Controls.Add(this.chart1);
-            this.TI_MainPNL.Controls.Add(this.label20);
+            this.TI_MainPNL.Controls.Add(this.TI_Q1CHRT);
+            this.TI_MainPNL.Controls.Add(this.lbl1);
             this.TI_MainPNL.Controls.Add(this.label21);
             this.TI_MainPNL.Controls.Add(this.label22);
             this.TI_MainPNL.Location = new System.Drawing.Point(35, 124);
@@ -490,16 +494,16 @@
             this.TI_MainPNL.Size = new System.Drawing.Size(693, 667);
             this.TI_MainPNL.TabIndex = 18;
             // 
-            // label20
+            // lbl1
             // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(15, 77);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(137, 15);
-            this.label20.TabIndex = 42;
-            this.label20.Text = "Temperature while lying:";
+            this.lbl1.AutoSize = true;
+            this.lbl1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lbl1.ForeColor = System.Drawing.Color.Black;
+            this.lbl1.Location = new System.Drawing.Point(15, 77);
+            this.lbl1.Name = "lbl1";
+            this.lbl1.Size = new System.Drawing.Size(137, 15);
+            this.lbl1.TabIndex = 42;
+            this.lbl1.Text = "Temperature while lying:";
             // 
             // label21
             // 
@@ -666,85 +670,85 @@
             this.label19.TabIndex = 39;
             this.label19.Text = "EBTI";
             // 
-            // chart1
+            // TI_Q1CHRT
             // 
-            this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.TI_Q1CHRT.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.chart1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.chart1.BorderlineWidth = 0;
-            this.chart1.BorderSkin.BorderWidth = 0;
-            chartArea2.AxisX.MajorGrid.Enabled = false;
-            chartArea2.AxisY.MajorGrid.Enabled = false;
-            chartArea2.Name = "EB_Q1BlinksCHRT";
-            this.chart1.ChartAreas.Add(chartArea2);
-            this.chart1.Location = new System.Drawing.Point(18, 114);
-            this.chart1.Name = "chart1";
-            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Grayscale;
-            series2.BorderWidth = 0;
-            series2.ChartArea = "EB_Q1BlinksCHRT";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series2.MarkerBorderWidth = 0;
-            series2.Name = "Blinks";
-            this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(636, 252);
-            this.chart1.TabIndex = 43;
-            this.chart1.Text = "chart1";
+            this.TI_Q1CHRT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.TI_Q1CHRT.BorderlineWidth = 0;
+            this.TI_Q1CHRT.BorderSkin.BorderWidth = 0;
+            chartArea4.AxisX.MajorGrid.Enabled = false;
+            chartArea4.AxisY.MajorGrid.Enabled = false;
+            chartArea4.Name = "EB_Q1BlinksCHRT";
+            this.TI_Q1CHRT.ChartAreas.Add(chartArea4);
+            this.TI_Q1CHRT.Location = new System.Drawing.Point(18, 114);
+            this.TI_Q1CHRT.Name = "TI_Q1CHRT";
+            this.TI_Q1CHRT.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Grayscale;
+            series4.BorderWidth = 0;
+            series4.ChartArea = "EB_Q1BlinksCHRT";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series4.MarkerBorderWidth = 0;
+            series4.Name = "Blinks";
+            this.TI_Q1CHRT.Series.Add(series4);
+            this.TI_Q1CHRT.Size = new System.Drawing.Size(636, 252);
+            this.TI_Q1CHRT.TabIndex = 43;
+            this.TI_Q1CHRT.Text = "chart1";
             // 
-            // dataGridView1
+            // TI_SummaryDataGRD
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.TI_SummaryDataGRD.AllowUserToAddRows = false;
+            this.TI_SummaryDataGRD.AllowUserToDeleteRows = false;
+            this.TI_SummaryDataGRD.AllowUserToResizeColumns = false;
+            this.TI_SummaryDataGRD.AllowUserToResizeRows = false;
+            this.TI_SummaryDataGRD.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.TI_SummaryDataGRD.BackgroundColor = System.Drawing.Color.White;
+            this.TI_SummaryDataGRD.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TI_SummaryDataGRD.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.TI_SummaryDataGRD.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.TI_SummaryDataGRD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.TI_SummaryDataGRD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.TI_SummaryDataGRD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.baseTemp,
             this.afterQuestionTemp,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.GridColor = System.Drawing.Color.White;
-            this.dataGridView1.Location = new System.Drawing.Point(14, 425);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(640, 205);
-            this.dataGridView1.TabIndex = 45;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.TI_SummaryDataGRD.DefaultCellStyle = dataGridViewCellStyle11;
+            this.TI_SummaryDataGRD.EnableHeadersVisualStyles = false;
+            this.TI_SummaryDataGRD.GridColor = System.Drawing.Color.White;
+            this.TI_SummaryDataGRD.Location = new System.Drawing.Point(14, 425);
+            this.TI_SummaryDataGRD.Name = "TI_SummaryDataGRD";
+            this.TI_SummaryDataGRD.ReadOnly = true;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.TI_SummaryDataGRD.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.TI_SummaryDataGRD.RowHeadersVisible = false;
+            this.TI_SummaryDataGRD.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.TI_SummaryDataGRD.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.TI_SummaryDataGRD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.TI_SummaryDataGRD.Size = new System.Drawing.Size(640, 205);
+            this.TI_SummaryDataGRD.TabIndex = 45;
             // 
             // label4
             // 
@@ -790,6 +794,28 @@
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
+            // TI_PeakTempLBL
+            // 
+            this.TI_PeakTempLBL.AutoSize = true;
+            this.TI_PeakTempLBL.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.TI_PeakTempLBL.ForeColor = System.Drawing.Color.Black;
+            this.TI_PeakTempLBL.Location = new System.Drawing.Point(246, 77);
+            this.TI_PeakTempLBL.Name = "TI_PeakTempLBL";
+            this.TI_PeakTempLBL.Size = new System.Drawing.Size(22, 15);
+            this.TI_PeakTempLBL.TabIndex = 47;
+            this.TI_PeakTempLBL.Text = "2.4";
+            // 
+            // TI_AverageTempLBL
+            // 
+            this.TI_AverageTempLBL.AutoSize = true;
+            this.TI_AverageTempLBL.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.TI_AverageTempLBL.ForeColor = System.Drawing.Color.Black;
+            this.TI_AverageTempLBL.Location = new System.Drawing.Point(246, 55);
+            this.TI_AverageTempLBL.Name = "TI_AverageTempLBL";
+            this.TI_AverageTempLBL.Size = new System.Drawing.Size(22, 15);
+            this.TI_AverageTempLBL.TabIndex = 46;
+            this.TI_AverageTempLBL.Text = "1.2";
+            // 
             // Report
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -826,8 +852,8 @@
             this.TI_MainPNL.PerformLayout();
             this.EBTI_MainPNL.ResumeLayout(false);
             this.EBTI_MainPNL.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TI_Q1CHRT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TI_SummaryDataGRD)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -860,7 +886,7 @@
         private System.Windows.Forms.Label EBTI_MainLBL;
         private System.Windows.Forms.Panel EBTI_MainPNL;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label lbl1;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label30;
@@ -880,13 +906,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn AverageAfterQuestion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Slope;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tag;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView TI_SummaryDataGRD;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn baseTemp;
         private System.Windows.Forms.DataGridViewTextBoxColumn afterQuestionTemp;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart TI_Q1CHRT;
+        private System.Windows.Forms.Label TI_PeakTempLBL;
+        private System.Windows.Forms.Label TI_AverageTempLBL;
     }
 }

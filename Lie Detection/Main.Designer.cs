@@ -59,32 +59,33 @@
             this.EB_LBL4 = new System.Windows.Forms.Label();
             this.EB_LBL3 = new System.Windows.Forms.Label();
             this.EB_RealtimeLogTXBX = new System.Windows.Forms.TextBox();
-            this.imageBox1 = new Emgu.CV.UI.ImageBox();
+            this.TI_VideoFeedIB = new Emgu.CV.UI.ImageBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.EB_BlinkedLBL = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
+            this.TI_AverageTempLBL = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TI_RealtimeLogTXBX = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
+            this.TI_CurrentTempLBL = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.EB_FromFileBTN = new System.Windows.Forms.Button();
             this.EB_OpenFileDBOX = new System.Windows.Forms.OpenFileDialog();
             this.EB_FramesTimer = new System.Windows.Forms.Timer(this.components);
             this.FadeTimer = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
+            this.TI_FromFileBTN = new System.Windows.Forms.Button();
+            this.TI_OpenFileDBOX = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.EB_VideoFeedIB)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imageBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TI_VideoFeedIB)).BeginInit();
             this.SuspendLayout();
             // 
             // EB_VideoFeedIB
@@ -502,13 +503,13 @@
             this.EB_RealtimeLogTXBX.Size = new System.Drawing.Size(304, 223);
             this.EB_RealtimeLogTXBX.TabIndex = 10;
             // 
-            // imageBox1
+            // TI_VideoFeedIB
             // 
-            this.imageBox1.Location = new System.Drawing.Point(51, 124);
-            this.imageBox1.Name = "imageBox1";
-            this.imageBox1.Size = new System.Drawing.Size(300, 207);
-            this.imageBox1.TabIndex = 11;
-            this.imageBox1.TabStop = false;
+            this.TI_VideoFeedIB.Location = new System.Drawing.Point(51, 124);
+            this.TI_VideoFeedIB.Name = "TI_VideoFeedIB";
+            this.TI_VideoFeedIB.Size = new System.Drawing.Size(300, 207);
+            this.TI_VideoFeedIB.TabIndex = 11;
+            this.TI_VideoFeedIB.TabStop = false;
             // 
             // label22
             // 
@@ -579,16 +580,16 @@
             this.label26.TabIndex = 16;
             this.label26.Text = "AVERAGE TEMPERATURE (CELCIUS)";
             // 
-            // label27
+            // TI_AverageTempLBL
             // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
-            this.label27.Location = new System.Drawing.Point(40, 427);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(125, 65);
-            this.label27.TabIndex = 18;
-            this.label27.Text = "0.00";
+            this.TI_AverageTempLBL.AutoSize = true;
+            this.TI_AverageTempLBL.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TI_AverageTempLBL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
+            this.TI_AverageTempLBL.Location = new System.Drawing.Point(40, 427);
+            this.TI_AverageTempLBL.Name = "TI_AverageTempLBL";
+            this.TI_AverageTempLBL.Size = new System.Drawing.Size(125, 65);
+            this.TI_AverageTempLBL.TabIndex = 18;
+            this.TI_AverageTempLBL.Text = "0.00";
             // 
             // label28
             // 
@@ -634,21 +635,21 @@
             this.label31.TabIndex = 22;
             this.label31.Text = "TEMP";
             // 
-            // textBox1
+            // TI_RealtimeLogTXBX
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TI_RealtimeLogTXBX.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
-            this.textBox1.Location = new System.Drawing.Point(45, 567);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(306, 223);
-            this.textBox1.TabIndex = 23;
+            this.TI_RealtimeLogTXBX.BackColor = System.Drawing.Color.White;
+            this.TI_RealtimeLogTXBX.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TI_RealtimeLogTXBX.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.TI_RealtimeLogTXBX.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
+            this.TI_RealtimeLogTXBX.Location = new System.Drawing.Point(45, 567);
+            this.TI_RealtimeLogTXBX.Multiline = true;
+            this.TI_RealtimeLogTXBX.Name = "TI_RealtimeLogTXBX";
+            this.TI_RealtimeLogTXBX.ReadOnly = true;
+            this.TI_RealtimeLogTXBX.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.TI_RealtimeLogTXBX.Size = new System.Drawing.Size(306, 223);
+            this.TI_RealtimeLogTXBX.TabIndex = 23;
             // 
             // label32
             // 
@@ -672,17 +673,17 @@
             this.label33.TabIndex = 24;
             this.label33.Text = "CURRENT TEMPERATURE (CELCIUS)";
             // 
-            // label34
+            // TI_CurrentTempLBL
             // 
-            this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
-            this.label34.Location = new System.Drawing.Point(287, 339);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(64, 32);
-            this.label34.TabIndex = 26;
-            this.label34.Text = "0.00";
-            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.TI_CurrentTempLBL.AutoSize = true;
+            this.TI_CurrentTempLBL.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TI_CurrentTempLBL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
+            this.TI_CurrentTempLBL.Location = new System.Drawing.Point(287, 339);
+            this.TI_CurrentTempLBL.Name = "TI_CurrentTempLBL";
+            this.TI_CurrentTempLBL.Size = new System.Drawing.Size(64, 32);
+            this.TI_CurrentTempLBL.TabIndex = 26;
+            this.TI_CurrentTempLBL.Text = "0.00";
+            this.TI_CurrentTempLBL.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label35
             // 
@@ -735,18 +736,24 @@
             this.FadeTimer.Interval = 1;
             this.FadeTimer.Tick += new System.EventHandler(this.FadeTimer_Tick);
             // 
-            // button1
+            // TI_FromFileBTN
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
-            this.button1.Location = new System.Drawing.Point(263, 92);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 23);
-            this.button1.TabIndex = 30;
-            this.button1.Text = "FROM FILE";
-            this.button1.UseVisualStyleBackColor = false;
+            this.TI_FromFileBTN.BackColor = System.Drawing.Color.White;
+            this.TI_FromFileBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TI_FromFileBTN.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.TI_FromFileBTN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
+            this.TI_FromFileBTN.Location = new System.Drawing.Point(263, 92);
+            this.TI_FromFileBTN.Name = "TI_FromFileBTN";
+            this.TI_FromFileBTN.Size = new System.Drawing.Size(88, 23);
+            this.TI_FromFileBTN.TabIndex = 30;
+            this.TI_FromFileBTN.Text = "FROM FILE";
+            this.TI_FromFileBTN.UseVisualStyleBackColor = false;
+            this.TI_FromFileBTN.Click += new System.EventHandler(this.TI_FromFileBTN_Click);
+            // 
+            // TI_OpenFileDBOX
+            // 
+            this.TI_OpenFileDBOX.FileName = "openFileDialog1";
+            this.TI_OpenFileDBOX.Filter = "Video Files|*.mp4";
             // 
             // Main
             // 
@@ -755,26 +762,26 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1038, 828);
             this.ControlBox = false;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.TI_FromFileBTN);
             this.Controls.Add(this.EB_FromFileBTN);
             this.Controls.Add(this.label35);
             this.Controls.Add(this.label36);
-            this.Controls.Add(this.label34);
+            this.Controls.Add(this.TI_CurrentTempLBL);
             this.Controls.Add(this.label32);
             this.Controls.Add(this.label33);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TI_RealtimeLogTXBX);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.label30);
             this.Controls.Add(this.label28);
             this.Controls.Add(this.label29);
-            this.Controls.Add(this.label27);
+            this.Controls.Add(this.TI_AverageTempLBL);
             this.Controls.Add(this.label25);
             this.Controls.Add(this.label26);
             this.Controls.Add(this.EB_BlinkedLBL);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.label22);
-            this.Controls.Add(this.imageBox1);
+            this.Controls.Add(this.TI_VideoFeedIB);
             this.Controls.Add(this.EB_RealtimeLogTXBX);
             this.Controls.Add(this.EB_LBL4);
             this.Controls.Add(this.EB_LBL3);
@@ -795,6 +802,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Main_Load);
             this.LocationChanged += new System.EventHandler(this.Main_LocationChanged);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.TI_getFrames);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Main_KeyDown);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Drag_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Drag_MouseMove);
@@ -802,7 +810,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.EB_VideoFeedIB)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imageBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TI_VideoFeedIB)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -838,22 +846,22 @@
         private System.Windows.Forms.Label EB_LBL4;
         private System.Windows.Forms.Label EB_LBL3;
         private System.Windows.Forms.TextBox EB_RealtimeLogTXBX;
-        private Emgu.CV.UI.ImageBox imageBox1;
+        private Emgu.CV.UI.ImageBox TI_VideoFeedIB;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label EB_BlinkedLBL;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label TI_AverageTempLBL;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TI_RealtimeLogTXBX;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label TI_CurrentTempLBL;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label37;
@@ -863,10 +871,11 @@
         private System.Windows.Forms.OpenFileDialog EB_OpenFileDBOX;
         private System.Windows.Forms.Timer EB_FramesTimer;
         private System.Windows.Forms.Timer FadeTimer;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button TI_FromFileBTN;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.OpenFileDialog TI_OpenFileDBOX;
     }
 }
 
