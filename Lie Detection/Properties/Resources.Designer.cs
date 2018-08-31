@@ -65,7 +65,7 @@ namespace Lie_Detection.Properties {
         ///1.5,FALSE
         ///1.67,FALSE
         ///0.67,FALSE
-        ///3,FALSE
+        ///3,TRUE
         ///1.33,FALSE
         ///1.5,FALSE
         ///0,FALSE
@@ -101,11 +101,31 @@ namespace Lie_Detection.Properties {
         ///2,TRUE
         ///3,TRUE
         ///2.5,TRUE
+        ///6.86,TRUE
+        ///15,TRUE
+        ///3.75,TRUE
+        ///2.8,TRUE
+        ///2.67,TRUE
+        ///1.8,FALSE
+        ///1.43,FALSE
+        ///0.83,FALSE
+        ///1.6,FALSE
+        ///4,TRUE
         ///.
         /// </summary>
         public static string EB_TrainingSet {
             get {
                 return ResourceManager.GetString("EB_TrainingSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Iron {
+            get {
+                object obj = ResourceManager.GetObject("Iron", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

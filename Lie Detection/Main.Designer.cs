@@ -802,7 +802,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Main_Load);
             this.LocationChanged += new System.EventHandler(this.Main_LocationChanged);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.TI_getFrames);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.TI_FramesPaint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Main_KeyDown);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Drag_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Drag_MouseMove);
