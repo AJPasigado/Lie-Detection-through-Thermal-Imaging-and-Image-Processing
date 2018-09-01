@@ -17,6 +17,7 @@ using Emgu.CV.Structure;
 
 using winusbdotnet.UsbDevices;
 using AForge.Imaging.Filters;
+using AForge.Imaging;
 using System.IO;
 using System.Linq;
 using System.Drawing.Imaging;
@@ -439,7 +440,20 @@ namespace Lie_Detection {
 
         void TI_ProcessFrame(Image<Bgr, Byte> videoFeed) {
             Image<Gray, Byte> videoFeedGray = videoFeed.Convert<Gray, Byte>();
-            TI_VideoFeedIB.Image = videoFeed.Resize(TI_VideoFeedIB.Width, TI_VideoFeedIB.Height, Inter.Linear);
+            var image = videoFeedGray.ThresholdBinary(new Gray(150), new Gray(255));
+
+            BlobCounter bc = new BlobCounter();
+            bc.FilterBlobs = true;
+            bc.MinWidth = 100;
+            bc.MinHeight = 100;
+            bc.ObjectsOrder = ObjectsOrder.Size;
+            bc.ProcessImage(image.Bitmap);
+
+            foreach (var rect in bc.GetObjectsRectangles()){
+                videoFeed.Draw(rect, new Bgr(Color.White), 5);
+            }
+
+            TI_VideoFeedIB.Image = videoFeed.Resize(TI_VideoFeedIB.Width, TI_VideoFeedIB.Height, Inter.Linear); ;
         }
 
         private void frame4stuff() {
