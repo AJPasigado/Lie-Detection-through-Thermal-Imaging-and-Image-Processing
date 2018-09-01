@@ -383,19 +383,23 @@ namespace Lie_Detection {
         void TI_ThreadProc() {
             while (true) {
                 if (FROM_FILE) {
-                    Mat m = new Mat();
-                    THERMAL_CAPTURE.Read(m); //Read the frame and store it in a mat
+                    try {
+                        Mat m = new Mat();
+                        THERMAL_CAPTURE.Read(m); //Read the frame and store it in a mat
 
-                    using (Image<Bgr, Byte> frame = m.ToImage<Bgr, Byte>()) {
-                        //Using 'using' to enable automatic garbage collection
-                        try {
-                            TI_ProcessFrame(frame.Copy()); //Pass the frame to the Frame Processor
+                        using (Image<Bgr, Byte> frame = m.ToImage<Bgr, Byte>()) {
+                            //Using 'using' to enable automatic garbage collection
+                            try {
+                                TI_ProcessFrame(frame.Copy()); //Pass the frame to the Frame Processor
 
-                        } catch {
-                            TI_EndSession(); //If no more frames are detected, stop the session
+                            } catch {
+                                TI_EndSession(); //If no more frames are detected, stop the session
+                            }
                         }
+                        Thread.Sleep(90);
+                    } catch {
+                        TI_EndSession();
                     }
-                    Thread.Sleep(90);
                 } else {
                     bool progress = false;
 
@@ -448,12 +452,20 @@ namespace Lie_Detection {
             bc.MinHeight = 100;
             bc.ObjectsOrder = ObjectsOrder.Size;
             bc.ProcessImage(image.Bitmap);
+            
 
-            foreach (var rect in bc.GetObjectsRectangles()){
-                videoFeed.Draw(rect, new Bgr(Color.White), 5);
-            }
 
-            TI_VideoFeedIB.Image = videoFeed.Resize(TI_VideoFeedIB.Width, TI_VideoFeedIB.Height, Inter.Linear); ;
+            videoFeed.Draw(bc.GetObjectsRectangles()[0], new Bgr(Color.White), 5);
+            TI_VideoFeedIB.Image = videoFeed.Resize(TI_VideoFeedIB.Width, TI_VideoFeedIB.Height, Inter.Linear);
+            
+            var video = videoFeed;
+            var rects = bc.GetObjectsRectangles()[0];
+            rects.Height /= 3;
+            rects.Y += 50;
+            video.ROI = rects;
+
+            //video
+
         }
 
         private void frame4stuff() {
