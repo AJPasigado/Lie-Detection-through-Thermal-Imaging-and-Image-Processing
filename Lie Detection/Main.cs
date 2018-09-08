@@ -456,7 +456,7 @@ namespace Lie_Detection {
 
 
             videoFeed.Draw(bc.GetObjectsRectangles()[0], new Bgr(Color.White), 5);
-            TI_VideoFeedIB.Image = videoFeed.Resize(TI_VideoFeedIB.Width, TI_VideoFeedIB.Height, Inter.Linear);
+            TI_VideoFeedIB.Image = image.Resize(TI_VideoFeedIB.Width, TI_VideoFeedIB.Height, Inter.Linear);
             
             var video = videoFeed;
             var rects = bc.GetObjectsRectangles()[0];
@@ -743,7 +743,7 @@ namespace Lie_Detection {
                 //upscale 200 % line83 ResizeBilinear bilinearResize = new ResizeBilinear(412, 312);
                 bigBitmap = bilinearResize.Apply(croppedBitmap);
 
-                TI_VideoFeedIB.Image = new Image<Bgr, Byte>(bigBitmap);
+                TI_ProcessFrame(new Image<Bgr, Byte>(bigBitmap));
 
 
                 if (autoSaveImg) bigBitmap.Save(localPath + @"\export\seek_" + DateTime.Now.ToString("yyyy-MM-dd_hh-mm-ss_fff") + ".png");
