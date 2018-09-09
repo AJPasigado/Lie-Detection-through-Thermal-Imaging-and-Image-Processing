@@ -18,7 +18,6 @@ using Emgu.CV.Structure;
 using winusbdotnet.UsbDevices;
 using AForge.Imaging.Filters;
 using AForge.Imaging;
-using System.IO;
 using System.Linq;
 using System.Drawing.Imaging;
 using System.Globalization;
@@ -95,9 +94,9 @@ namespace Lie_Detection {
                 EB_StartSession(); //Starts the eye blink session
                 IN_SESSION = true; //Announce that the session is in progress
             } else if (e.KeyCode.ToString() == "F10") {
-                if (!FROM_FILE) EB_Answer(); //If the session is realtime, the user can specify when to answer
+                if (IN_SESSION && !FROM_FILE) EB_Answer(); //If the session is realtime, the user can specify when to answer
             } else if (e.KeyCode.ToString() == "F11") {
-                if (EB_RealtimeLogTXBX.Text != String.Empty) {
+                if (EB_RealtimeLogTXBX.Text != String.Empty || TI_RealtimeLogTXBX.Text != String.Empty) {
                     EB_EndSession(); //End the eye blink session
                     IN_SESSION = false; //Announce that the session is done
                     LoadReport(); //Loads the Report Form
@@ -106,7 +105,8 @@ namespace Lie_Detection {
                 }
 
             } else if (e.KeyCode.ToString() == "F12") {
-                EB_EndSession(); //End the eye blink session
+                EB_EndSession();
+                TI_EndSession();//End the eye blink session
                 IN_SESSION = false; //Announce that the session is done
             } else if (e.KeyCode.ToString() == "F1") {
                 var form = new Help {
@@ -131,11 +131,13 @@ namespace Lie_Detection {
 
         private void LoadReport() {
             EB_RealtimeLogTXBX.AppendText("=== END SESSION ===" + Environment.NewLine);
+            TI_RealtimeLogTXBX.AppendText("=== END SESSION ===" + Environment.NewLine);
             Report report = new Report {
                 reference = this,
                 Location = Location,
                 Size = Size,
-                EB_data = EB_RealtimeLogTXBX.Text //Pass the eye blink data from the log
+                EB_data = EB_RealtimeLogTXBX.Text, //Pass the eye blink data from the log
+                TI_data = TI_RealtimeLogTXBX.Text
             };
             Hide();
             report.Show();
@@ -147,8 +149,8 @@ namespace Lie_Detection {
 
         // Global Variables for Eye Blink Processing in Realtime //
 
-        CascadeClassifier FACE_CASCADE = new CascadeClassifier(@"D:\Documents\GitHub\opencv\data\haarcascades\haarcascade_frontalface_default.xml");
-        CascadeClassifier EYE_CASCADE = new CascadeClassifier(@"D:\Documents\GitHub\opencv\data\haarcascades\haarcascade_eye.xml");
+        CascadeClassifier FACE_CASCADE = new CascadeClassifier(@"haarcascade_frontalface_default.xml");
+        CascadeClassifier EYE_CASCADE = new CascadeClassifier(@"haarcascade_eye.xml");
         int TOTAL_BLINKS = 0;
         bool DETECT_EYES = false;
         VideoCapture CAM_CAPTURE;
@@ -164,8 +166,7 @@ namespace Lie_Detection {
                 //If it is not realtime, then just clear the log
                 EB_RealtimeLogTXBX.Text = "";
             }
-
-            EB_FromFileBTN.Visible = false; //Disable loading from new files when session is in progress
+            
             START_TIME = DateTime.Now;
             EB_RealtimeLogTXBX.AppendText("=== WATCHING/ASKING ===" + Environment.NewLine); //Indicates the first or the next question
             EB_AverageEyeBlinkLBL.Text = "0"; //Reset the total eye blinks
@@ -180,7 +181,6 @@ namespace Lie_Detection {
 
         private void EB_EndSession() {
             if (CAM_CAPTURE != null) CAM_CAPTURE.Dispose(); //Turn off the camera after session
-            EB_FromFileBTN.Visible = true; //Enable loading from file
 
             EB_AverageEyeBlinkLBL.Text = "";
             TOTAL_BLINKS = 0;
@@ -189,7 +189,6 @@ namespace Lie_Detection {
             else {
                 //If not realtime, stop the timer that process the frames and call the form to post-process the data
                 EB_FramesTimer.Stop();
-                EB_FileProcessData();
                 FROM_FILE = false; //Announce that loading from file is finished
             }
         }
@@ -231,7 +230,7 @@ namespace Lie_Detection {
                     videoFeed.Draw(eyesDetected[0], new Bgr(Color.Blue), 2); //Draw the rectangle for the eyes
 
                     DETECT_EYES = true; //Announce that an eye is detected
-                    EB_BlinkedLBL.Hide(); //Hide the "Blinked" indicator
+                    EB_BlinkedLBL.Text = "DETECTING"; //Hide the "Blinked" indicator
                 } else {
                     //If an eye is not detected
                     if (DETECT_EYES) {
@@ -240,7 +239,7 @@ namespace Lie_Detection {
                         EB_AverageEyeBlinkLBL.Text = TOTAL_BLINKS.ToString(); //Update the total eye blinks label
                         TimeSpan temp = DateTime.Now - START_TIME;
                         EB_RealtimeLogTXBX.AppendText($"{temp.Hours:D2}:{temp.Minutes:D2}.{temp.Seconds:D2} {Environment.NewLine}"); //Add the time to the log
-                        EB_BlinkedLBL.Show(); //Show the "Blinked" label
+                        EB_BlinkedLBL.Text = "BLINKED"; //Show the "Blinked" label
                     }
                     DETECT_EYES = false; //Reset the flag for eyes detected
                 }
@@ -250,10 +249,10 @@ namespace Lie_Detection {
 
         #endregion
 
-        #region Eye Blink Processing From File
+        #region Processing From File
 
-        public String EB_PROCESSED_DATA = ""; //A placeholder for the processed data to be passed
-        CascadeClassifier THERMAL_FACE = new CascadeClassifier(@"D:\Documents\GitHub\opencv\data\haarcascades\haarcascade_frontalface_default.xml");
+        public String EB_PROCESSED_DATA = "";
+        public String TI_PROCESSED_DATA = "";//A placeholder for the processed data to be passed
 
         private void EB_FromFileBTN_Click(object sender, EventArgs e) {
             if (EB_OpenFileDBOX.ShowDialog() == DialogResult.OK) {
@@ -281,29 +280,38 @@ namespace Lie_Detection {
         }
 
         private void EB_FileProcessData() {
+            TI_FromFileBTN.Show();
             EB_PROCESSED_DATA = EB_RealtimeLogTXBX.Text; //Store the current log
+            TI_PROCESSED_DATA = TI_RealtimeLogTXBX.Text;
 
             var form = new FromFileProcessingFORM {
                 reference = this,
                 data = EB_RealtimeLogTXBX.Text, //Send the data to be processed
+                TI_data = TI_RealtimeLogTXBX.Text,
                 refer = SHADOW
             };
 
             SHADOW.Transparent();
             SHADOW.Form = form;
             SHADOW.ShowDialog();
+            TI_RealtimeLogTXBX.Text = TI_PROCESSED_DATA;
             EB_RealtimeLogTXBX.Text = EB_PROCESSED_DATA; //Replace the log with the processed data
         }
 
         #endregion
-
 
         #region Thermal Imaging
 
         SeekThermal thermal;
         Thread thermalThread;
         ThermalFrame currentFrame, lastUsableFrame;
+        Color[] TI_ironFilter;
         VideoCapture THERMAL_CAPTURE;
+        double TI_MAX_TEMP = 38;
+        double TI_MIN_TEMP = 23;
+        double TI_CURRENT_TEMP = 0;
+        bool TI_IN_SESSION = false;
+        bool TI_FROM_FILE = false;
 
         bool stopThread;
         bool grabExternalReference = false;
@@ -348,7 +356,7 @@ namespace Lie_Detection {
         Crop cropFilter = new Crop(new Rectangle(0, 0, 206, 156));
 
         private void TI_StartSession() {
-            if (!FROM_FILE) {
+            if (!TI_FROM_FILE) {
                 ChangePallete();
                 var device = SeekThermal.Enumerate().FirstOrDefault();
                 if (device == null) {
@@ -358,31 +366,39 @@ namespace Lie_Detection {
                 thermal = new SeekThermal(device);
             }
 
-            thermalThread = new Thread(TI_ThreadProc);
-            thermalThread.IsBackground = true;
-            thermalThread.Start();
+            if (!TI_IN_SESSION) {
+                TI_START_TIME = DateTime.Now;
+                TI_UpdateTMR.Start();
+                TI_RealtimeLogTXBX.Clear();
+                TI_IN_SESSION = true;
+                thermalThread = new Thread(TI_ThreadProc);
+                thermalThread.IsBackground = true;
+                thermalThread.Start();
+            }
+
+            TI_RealtimeLogTXBX.AppendText("=== WATCHING/ASKING ===" + Environment.NewLine);
         }
 
         public void TI_EndSession() {
-            if (thermal != null) {
-                thermalThread.Join(500);
-                thermal.Deinit();
-            }
+            TI_IN_SESSION = false;
+            TI_UpdateTMR.Stop();
+            thermalThread.Join(500);
+            if (thermal != null) thermal.Deinit();
+            TI_FROM_FILE = false;
         }
 
         private void TI_FromFileBTN_Click(object sender, EventArgs e) {
             if (TI_OpenFileDBOX.ShowDialog() == DialogResult.OK) {
                 //Open a dailog box to search for a video file
                 THERMAL_CAPTURE = new VideoCapture(TI_OpenFileDBOX.FileName);
-                IN_SESSION = true;
-                FROM_FILE = true;
+                TI_FROM_FILE = true;
                 TI_StartSession();
             }
         }
 
         void TI_ThreadProc() {
-            while (true) {
-                if (FROM_FILE) {
+            while (true) { 
+                if (TI_FROM_FILE && TI_IN_SESSION) {
                     try {
                         Mat m = new Mat();
                         THERMAL_CAPTURE.Read(m); //Read the frame and store it in a mat
@@ -392,15 +408,15 @@ namespace Lie_Detection {
                             try {
                                 TI_ProcessFrame(frame.Copy()); //Pass the frame to the Frame Processor
 
-                            } catch {
+                            } catch (Exception e) {
                                 TI_EndSession(); //If no more frames are detected, stop the session
                             }
                         }
-                        Thread.Sleep(90);
-                    } catch {
+                        Thread.Sleep(9);
+                    } catch (Exception e){
                         TI_EndSession();
                     }
-                } else {
+                } else if (!TI_FROM_FILE && TI_IN_SESSION) {
                     bool progress = false;
 
                     currentFrame = thermal.GetFrameBlocking();
@@ -417,17 +433,10 @@ namespace Lie_Detection {
 
                         case 3://image frame
                             markBadPixels();
-                            if (grabExternalReference)//use this image as reference
-                            {
-                                grabExternalReference = false;
-                                usignExternalCal = true;
-                                frame1stuff();
-                            } else {
-                                //MessageBox.Show("current frame status " + currentFrame);
-                                frame3stuff();
-                                lastUsableFrame = currentFrame;
-                                progress = true;
-                            }
+                            //MessageBox.Show("current frame status " + currentFrame);
+                            frame3stuff();
+                            lastUsableFrame = currentFrame;
+                            progress = true;
                             break;
 
                         default:
@@ -452,20 +461,46 @@ namespace Lie_Detection {
             bc.MinHeight = 100;
             bc.ObjectsOrder = ObjectsOrder.Size;
             bc.ProcessImage(image.Bitmap);
-            
 
+            videoFeed.Draw(bc.GetObjectsRectangles()[0], new Bgr(Color.White), 2);
 
-            videoFeed.Draw(bc.GetObjectsRectangles()[0], new Bgr(Color.White), 5);
-            TI_VideoFeedIB.Image = image.Resize(TI_VideoFeedIB.Width, TI_VideoFeedIB.Height, Inter.Linear);
-            
             var video = videoFeed;
             var rects = bc.GetObjectsRectangles()[0];
-            rects.Height /= 3;
-            rects.Y += 50;
+            rects.Height /= 4;
+            rects.Width -= 90;
+            rects.X += 30;
+            rects.Y += 55;
+
+            videoFeed.Draw(rects, new Bgr(Color.Black), 2);
+            TI_VideoFeedIB.Image = videoFeed.Resize(TI_VideoFeedIB.Width, TI_VideoFeedIB.Height, Inter.Linear);
+            
             video.ROI = rects;
 
-            //video
+            double[] minVal, maxVal;
+            Point[] minLoc, maxLoc;
+            video.MinMax(out minVal, out maxVal, out minLoc, out maxLoc);
 
+            Bitmap bitImage = new Bitmap(video.Convert<Gray, Byte>().Bitmap);
+            Color maxPixel = bitImage.GetPixel((maxLoc[0].X + maxLoc[1].X + maxLoc[2].X) /3, (maxLoc[0].Y + maxLoc[1].Y + maxLoc[2].Y) /3);
+            
+            TI_CURRENT_TEMP = (((maxPixel.R + maxPixel.G + maxPixel.B) / 3) * (TI_MAX_TEMP - TI_MIN_TEMP)) / 255 + TI_MIN_TEMP;
+
+        }
+
+        double TI_TOTAL_TEMP = 0.0;
+        int TI_TOTAL_RECORD = 0;
+        DateTime TI_START_TIME;
+
+        private void TI_UpdateTMR_Tick(object sender, EventArgs e) {
+            TI_CurrentTempLBL.Text = TI_CURRENT_TEMP.ToString("F3");
+
+            TI_TOTAL_TEMP += TI_CURRENT_TEMP;
+            TI_TOTAL_RECORD++;
+
+            TI_AverageTempLBL.Text = (TI_TOTAL_TEMP / TI_TOTAL_RECORD).ToString("F3");
+
+            TimeSpan temp = DateTime.Now - TI_START_TIME;
+            TI_RealtimeLogTXBX.AppendText($"{temp.Hours:D2}:{temp.Minutes:D2}.{temp.Seconds:D2} {TI_AverageTempLBL.Text} {Environment.NewLine}");
         }
 
         private void frame4stuff() {
@@ -500,7 +535,7 @@ namespace Lie_Detection {
 
             fixBadPixels();
             removeNoise();
-            getHistogram();
+            getHistogram(); 
             fillImgBuffer();
         }
 
@@ -688,6 +723,8 @@ namespace Lie_Detection {
                 gMode[i] = (ushort)((double)arrMode[i] / gModePeakCnt * 100);
             }
 
+            
+
             gModeLeft = gModePeakIx;
             gModeRight = gModePeakIx;
             //find left border:
@@ -719,20 +756,11 @@ namespace Lie_Detection {
             return tempVal.ToString("F1", CultureInfo.InvariantCulture);
         }
 
+ 
+
         private void TI_FramesPaint(object sender, PaintEventArgs e) {
             //MessageBox.Show(" " + lastUsableFrame);
             if (lastUsableFrame != null) {
-                string minTemp = rawToTemp(gModeLeft);
-                string maxTemp = rawToTemp(gModeRight);
-
-                /*
-                lblMinTemp.Text = minTemp;
-                lblMaxTemp.Text = maxTemp;
-
-                lblLeft.Text = gModeLeft.ToString();
-                lblRight.Text = gModeRight.ToString();
-                label2.Text = maxTempRaw.ToString();*/
-
                 bitmap_data = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height), ImageLockMode.WriteOnly, PixelFormat.Format24bppRgb);
                 Marshal.Copy(imgBuffer, 0, bitmap_data.Scan0, imgBuffer.Length);
                 bitmap.UnlockBits(bitmap_data);
@@ -744,9 +772,6 @@ namespace Lie_Detection {
                 bigBitmap = bilinearResize.Apply(croppedBitmap);
 
                 TI_ProcessFrame(new Image<Bgr, Byte>(bigBitmap));
-
-
-                if (autoSaveImg) bigBitmap.Save(localPath + @"\export\seek_" + DateTime.Now.ToString("yyyy-MM-dd_hh-mm-ss_fff") + ".png");
 
             }
 

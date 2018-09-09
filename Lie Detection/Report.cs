@@ -9,6 +9,7 @@ using System.Windows.Forms;
 namespace Lie_Detection {
     public partial class Report : Form {
         public string EB_data;
+        public string TI_data;
         int mode = 0;
         string python = @"C:\Users\ajpas\AppData\Local\Programs\Python\Python37\python.exe";
 
@@ -23,7 +24,6 @@ namespace Lie_Detection {
 
         private void Report_Load(object sender, EventArgs e)
         {
-            LoadEyeBlinkData();
             currentLabel = TI_MainLBL;
             currentPanel = TI_MainPNL;
         }
@@ -54,6 +54,12 @@ namespace Lie_Detection {
             {
                 Close();
             }
+        }
+
+        private void Report_Shown(object sender, EventArgs e) {
+            LoadThermalData();
+            LoadEyeBlinkData();
+            LoadCombinedData();
         }
 
         #endregion
@@ -212,29 +218,36 @@ namespace Lie_Detection {
                     } //End of While-loop
                 } //End of String Reader
             } catch (Exception e){
-                MessageBox.Show(e.Message, "Could not process data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(e.Message, "Could not process eye blink data", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             EB_QuestionsCountLBL.Text = finalAverageList.Count.ToString();
 
             try {
-                EB_ModelAccuracyLBL.Text = EB_NaiveBayesModel(); //Generate the Eye Blink model for NaiveBayes
+                string[] accuracy = NaiveBayesModel().Split(' ');
+                EB_ModelAccuracyLBL.Text = (double.Parse(accuracy[0]) * 100).ToString() + "%"; //Generate the Eye Blink model for NaiveBayes
+                TI_ModelAccuracyLBL.Text = (double.Parse(accuracy[1]) * 100).ToString() + "%";
+                EBTI_CombinedAccuracyLBL.Text = (double.Parse(accuracy[2]) * 100).ToString() + "%";
+                EBTI_EyeAccuracyLBL.Text = EB_ModelAccuracyLBL.Text;
+                EBTI_ThermalAccuracyLBL.Text = TI_ModelAccuracyLBL.Text;
+                EBTI_QuestionsLBL.Text = EB_QuestionsCountLBL.Text == TI_NumberOfQuestionsLBL.Text ? EB_QuestionsCountLBL.Text : "Unbalanced";
             } catch (Exception e) {
                 MessageBox.Show(e.Message, "Could not create Eye Blink Model", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
 
             try {
-                double[] slope = new double[finalAfterList.Count()];
+                EB_slope = new double[finalAfterList.Count()];
+
                 for (int i = 0; i < finalAfterList.Count(); i++) {
-                    slope[i] = finalAfterList[i] / finalAverageList[i];
+                    EB_slope[i] = finalAfterList[i] / finalAverageList[i];
                 }
 
-                string[] result = EB_NaiveBayesPredict(slope);
+                string[] result = NaiveBayesPredict(EB_slope, 0);
 
                 for (int i = 0; i < finalAverageList.Count; i++) {
                     //Display the result in the data grid
-                    EB_ResultDTGRD.Rows.Add(i + 1, finalAverageList[i].ToString("#.00"), finalAfterList[i].ToString("#.00"), (slope[i]).ToString("#.00"),
+                    EB_ResultDTGRD.Rows.Add(i + 1, finalAverageList[i].ToString("#.00"), finalAfterList[i].ToString("#.00"), (EB_slope[i]).ToString("#.00"),
                             bool.Parse(result[i]) ? "Lie" : "Truth");
                 }
             } catch (Exception e) {
@@ -242,17 +255,22 @@ namespace Lie_Detection {
             }
         }
 
+        double[] EB_slope;
+
         private int EB_AddToGraph(string x, int y)
         {
             return EB_Q1CHRT.Series["Blinks"].Points.AddXY(x, y);
         }
 
-        private string[] EB_NaiveBayesPredict(double[] slope) {
+        private string[] NaiveBayesPredict(double[] slope, int mode) {
             bool[] ret = new bool[finalAfterList.Count()];
             string pass = string.Join(",", slope);
+            string myPythonApp;
 
             // python app to call 
-            string myPythonApp = @"EB_NaiveBayesPredict.py";
+            if (mode == 0) myPythonApp = @"EB_NaiveBayesPredict.py";
+            else if(mode == 1) myPythonApp = @"TI_NaiveBayesPredict.py";
+            else myPythonApp = @"EBTI_NaiveBayesPredict.py";
 
             // Create new process start info 
             ProcessStartInfo myProcessStartInfo = new ProcessStartInfo(python);
@@ -291,9 +309,9 @@ namespace Lie_Detection {
             return myString.Split(',');
         }
 
-        private string EB_NaiveBayesModel() {
+        private string NaiveBayesModel() {
             // python app to call 
-            string myPythonApp = @"EB_NaiveBayesModel.py";
+            string myPythonApp = @"NaiveBayesModel.py";
 
             // Create new process start info 
             ProcessStartInfo myProcessStartInfo = new ProcessStartInfo(python);
@@ -334,10 +352,115 @@ namespace Lie_Detection {
 
         #endregion
 
+        #region Thermal Imaging
+        double[] TI_slope;
+
         private void LoadThermalData() {
+            String a = TI_data;
+            double total = 0;
+            double count = 0;
+            double maxTemp = 0;
+            double minTemp = 50;
+
+            double tempTotal = 0;
+            double tempCount = 0;
+
+            double questionCount = 0;
+            bool initial = true;
+
+            List<double> tempList = new List<double>();
+
+            try {
+                using (StringReader reader = new StringReader(a)) {
+                    //Start reading the lines
+                    string line;
+                    while ((line = reader.ReadLine()) != null) {
+                        if (line.Equals("=== WATCHING/ASKING ===")) {
+                            if (!initial) {
+                                questionCount++;
+                                TI_Q1CHRT.Series["Thermal"].Points.AddXY(questionCount, (tempTotal / tempCount).ToString("F3"));
+                                tempList.Add(tempTotal / tempCount);
+                                tempTotal = 0;
+                                tempCount = 0;
+                            }
+                            initial = false;
+                        } else if (line.Equals("=== END SESSION ===")) {
+                            questionCount++;
+                            TI_Q1CHRT.Series["Thermal"].Points.AddXY(questionCount, (tempTotal/tempCount).ToString("F3"));
+                            tempList.Add(tempTotal / tempCount);
+
+                            break;
+                        } else {
+                            double temp = double.Parse(line.Split(' ')[1]);
+                            total += temp;
+                            count++;
+
+                            maxTemp = temp > maxTemp ? temp : maxTemp;
+                            minTemp = temp < minTemp ? temp : minTemp;
+
+                            tempTotal += temp;
+                            tempCount++;
+                        }
+                            
+                    }
+                }
+            } catch (Exception e){
+                MessageBox.Show(e.Message, "Could not process thermal image data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            TI_AverageTempLBL.Text = (total / count).ToString("F3");
+            TI_NumberOfQuestionsLBL.Text = questionCount.ToString();
+            TI_PeakTempLBL.Text = maxTemp.ToString("F3");
+
+            TI_Q1CHRT.ChartAreas[0].AxisY.Minimum = minTemp - 0.5;
+            TI_Q1CHRT.ChartAreas[0].AxisY.Maximum = maxTemp + 0.5;
+            TI_Q1CHRT.ChartAreas[0].AxisX.Maximum = questionCount + 1;
+
+            TI_slope = new double[tempList.Count()];
+
+            for (int i = 0; i < tempList.Count(); i++) {
+                TI_slope[i] = tempList[i] / minTemp;
+            }
+
+            try {
+
+                string[] result = NaiveBayesPredict(tempList.ToArray(), 1);
+
+
+                for (int i = 0; i < tempList.Count; i++) {
+                    //Display the result in the data grid
+                    TI_SummaryDataGRD.Rows.Add(i + 1, tempList[i].ToString("F3"), TI_slope[i].ToString("F3"), bool.Parse(result[i]) ? "Lie" : "Truth");
+                }
+                
+            } catch (Exception e) {
+                MessageBox.Show(e.Message, "Could not finish Thermal Image prediction", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
+        #endregion
+
+        #region Combined Data
+
+        private void LoadCombinedData() {
+            if (TI_slope.Count() == EB_slope.Count()) {
+                try {
+                    string[] result = NaiveBayesPredict(TI_slope.Concat(EB_slope).ToArray(), 2);
+                    EBTI_Q1CHRT.ChartAreas[0].AxisX.Maximum = EB_slope.Count() + 1;
+                    for (int i = 0; i < EB_slope.Count(); i++) {
+                        EBTI_Q1CHRT.Series["Thermal"].Points.AddXY(i+1, TI_slope[i].ToString("F3"));
+                        EBTI_Q1CHRT.Series["EyeBlink"].Points.AddXY(i+1, EB_slope[i].ToString("F3"));
+                        //Display the result in the data grid
+                        EBTI_SummaryGRD.Rows.Add(i + 1, TI_slope[i].ToString("F3"), EB_slope[i].ToString("F3"), bool.Parse(result[i]) ? "Lie" : "Truth");
+                    }
+
+                } catch (Exception e) {
+                    MessageBox.Show(e.Message, "Could not finish combined data prediction", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
 
+            }
+        }
+
+        #endregion
     }
 }

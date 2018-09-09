@@ -165,6 +165,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\Iron.png" />
+    <None Include="Resources\haarcascade_eye.xml" />
+    <None Include="Resources\haarcascade_frontalface_default.xml" />
     <Content Include="vcruntime140.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

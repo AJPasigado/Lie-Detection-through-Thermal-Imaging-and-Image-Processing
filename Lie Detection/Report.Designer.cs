@@ -23,16 +23,22 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
@@ -63,39 +69,50 @@
             this.EB_Q1CHRT = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label8 = new System.Windows.Forms.Label();
             this.TI_MainPNL = new System.Windows.Forms.Panel();
+            this.TI_NumberOfQuestionsLBL = new System.Windows.Forms.Label();
+            this.TI_ModelAccuracyLBL = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.TI_PeakTempLBL = new System.Windows.Forms.Label();
+            this.TI_AverageTempLBL = new System.Windows.Forms.Label();
+            this.TI_SummaryDataGRD = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.afterQuestionTemp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label4 = new System.Windows.Forms.Label();
             this.lbl1 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.EBTI_MainLBL = new System.Windows.Forms.Label();
             this.EBTI_MainPNL = new System.Windows.Forms.Panel();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
+            this.EBTI_QuestionsLBL = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.EBTI_SummaryGRD = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label7 = new System.Windows.Forms.Label();
+            this.EBTI_ThermalAccuracyLBL = new System.Windows.Forms.Label();
+            this.EBTI_EyeAccuracyLBL = new System.Windows.Forms.Label();
+            this.EBTI_CombinedAccuracyLBL = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
+            this.EBTI_Q1CHRT = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.TI_Q1CHRT = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.TI_SummaryDataGRD = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.baseTemp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.afterQuestionTemp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TI_PeakTempLBL = new System.Windows.Forms.Label();
-            this.TI_AverageTempLBL = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.EB_MainPNL.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EB_ResultDTGRD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EB_Q1CHRT)).BeginInit();
             this.TI_MainPNL.SuspendLayout();
-            this.EBTI_MainPNL.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TI_Q1CHRT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TI_SummaryDataGRD)).BeginInit();
+            this.EBTI_MainPNL.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EBTI_SummaryGRD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EBTI_Q1CHRT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TI_Q1CHRT)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -311,14 +328,14 @@
             this.EB_ResultDTGRD.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.EB_ResultDTGRD.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.EB_ResultDTGRD.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.EB_ResultDTGRD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.EB_ResultDTGRD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.EB_ResultDTGRD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.EB_ResultDTGRD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.QuestionNumber,
@@ -326,27 +343,27 @@
             this.AverageAfterQuestion,
             this.Slope,
             this.Tag});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.EB_ResultDTGRD.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.EB_ResultDTGRD.DefaultCellStyle = dataGridViewCellStyle11;
             this.EB_ResultDTGRD.EnableHeadersVisualStyles = false;
             this.EB_ResultDTGRD.GridColor = System.Drawing.Color.White;
             this.EB_ResultDTGRD.Location = new System.Drawing.Point(14, 425);
             this.EB_ResultDTGRD.Name = "EB_ResultDTGRD";
             this.EB_ResultDTGRD.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.EB_ResultDTGRD.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.EB_ResultDTGRD.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.EB_ResultDTGRD.RowHeadersVisible = false;
             this.EB_ResultDTGRD.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.EB_ResultDTGRD.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -401,25 +418,25 @@
             // 
             // EB_QuestionsCountLBL
             // 
-            this.EB_QuestionsCountLBL.AutoSize = true;
             this.EB_QuestionsCountLBL.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.EB_QuestionsCountLBL.ForeColor = System.Drawing.Color.Black;
-            this.EB_QuestionsCountLBL.Location = new System.Drawing.Point(246, 77);
+            this.EB_QuestionsCountLBL.Location = new System.Drawing.Point(188, 77);
             this.EB_QuestionsCountLBL.Name = "EB_QuestionsCountLBL";
-            this.EB_QuestionsCountLBL.Size = new System.Drawing.Size(22, 15);
+            this.EB_QuestionsCountLBL.Size = new System.Drawing.Size(80, 15);
             this.EB_QuestionsCountLBL.TabIndex = 41;
             this.EB_QuestionsCountLBL.Text = "2.4";
+            this.EB_QuestionsCountLBL.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // EB_ModelAccuracyLBL
             // 
-            this.EB_ModelAccuracyLBL.AutoSize = true;
             this.EB_ModelAccuracyLBL.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.EB_ModelAccuracyLBL.ForeColor = System.Drawing.Color.Black;
-            this.EB_ModelAccuracyLBL.Location = new System.Drawing.Point(246, 55);
+            this.EB_ModelAccuracyLBL.Location = new System.Drawing.Point(188, 55);
             this.EB_ModelAccuracyLBL.Name = "EB_ModelAccuracyLBL";
-            this.EB_ModelAccuracyLBL.Size = new System.Drawing.Size(22, 15);
+            this.EB_ModelAccuracyLBL.Size = new System.Drawing.Size(80, 15);
             this.EB_ModelAccuracyLBL.TabIndex = 40;
             this.EB_ModelAccuracyLBL.Text = "1.2";
+            this.EB_ModelAccuracyLBL.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label15
             // 
@@ -450,19 +467,20 @@
             this.EB_Q1CHRT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.EB_Q1CHRT.BorderlineWidth = 0;
             this.EB_Q1CHRT.BorderSkin.BorderWidth = 0;
-            chartArea3.AxisX.MajorGrid.Enabled = false;
-            chartArea3.AxisY.MajorGrid.Enabled = false;
-            chartArea3.Name = "EB_Q1BlinksCHRT";
-            this.EB_Q1CHRT.ChartAreas.Add(chartArea3);
+            chartArea4.AxisX.MajorGrid.Enabled = false;
+            chartArea4.AxisY.MajorGrid.Enabled = false;
+            chartArea4.Name = "EB_Q1BlinksCHRT";
+            this.EB_Q1CHRT.ChartAreas.Add(chartArea4);
             this.EB_Q1CHRT.Location = new System.Drawing.Point(18, 114);
             this.EB_Q1CHRT.Name = "EB_Q1CHRT";
             this.EB_Q1CHRT.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Grayscale;
-            series3.BorderWidth = 0;
-            series3.ChartArea = "EB_Q1BlinksCHRT";
-            series3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series3.MarkerBorderWidth = 0;
-            series3.Name = "Blinks";
-            this.EB_Q1CHRT.Series.Add(series3);
+            series5.BorderWidth = 0;
+            series5.ChartArea = "EB_Q1BlinksCHRT";
+            series5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series5.IsValueShownAsLabel = true;
+            series5.MarkerBorderWidth = 0;
+            series5.Name = "Blinks";
+            this.EB_Q1CHRT.Series.Add(series5);
             this.EB_Q1CHRT.Size = new System.Drawing.Size(636, 252);
             this.EB_Q1CHRT.TabIndex = 37;
             this.EB_Q1CHRT.Text = "chart1";
@@ -481,6 +499,10 @@
             // TI_MainPNL
             // 
             this.TI_MainPNL.AutoScroll = true;
+            this.TI_MainPNL.Controls.Add(this.TI_NumberOfQuestionsLBL);
+            this.TI_MainPNL.Controls.Add(this.TI_ModelAccuracyLBL);
+            this.TI_MainPNL.Controls.Add(this.label10);
+            this.TI_MainPNL.Controls.Add(this.label11);
             this.TI_MainPNL.Controls.Add(this.TI_PeakTempLBL);
             this.TI_MainPNL.Controls.Add(this.TI_AverageTempLBL);
             this.TI_MainPNL.Controls.Add(this.TI_SummaryDataGRD);
@@ -494,6 +516,164 @@
             this.TI_MainPNL.Size = new System.Drawing.Size(693, 667);
             this.TI_MainPNL.TabIndex = 18;
             // 
+            // TI_NumberOfQuestionsLBL
+            // 
+            this.TI_NumberOfQuestionsLBL.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.TI_NumberOfQuestionsLBL.ForeColor = System.Drawing.Color.Black;
+            this.TI_NumberOfQuestionsLBL.Location = new System.Drawing.Point(514, 78);
+            this.TI_NumberOfQuestionsLBL.Name = "TI_NumberOfQuestionsLBL";
+            this.TI_NumberOfQuestionsLBL.Size = new System.Drawing.Size(87, 15);
+            this.TI_NumberOfQuestionsLBL.TabIndex = 51;
+            this.TI_NumberOfQuestionsLBL.Text = "2.4";
+            this.TI_NumberOfQuestionsLBL.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // TI_ModelAccuracyLBL
+            // 
+            this.TI_ModelAccuracyLBL.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.TI_ModelAccuracyLBL.ForeColor = System.Drawing.Color.Black;
+            this.TI_ModelAccuracyLBL.Location = new System.Drawing.Point(514, 56);
+            this.TI_ModelAccuracyLBL.Name = "TI_ModelAccuracyLBL";
+            this.TI_ModelAccuracyLBL.Size = new System.Drawing.Size(87, 15);
+            this.TI_ModelAccuracyLBL.TabIndex = 50;
+            this.TI_ModelAccuracyLBL.Text = "1.2";
+            this.TI_ModelAccuracyLBL.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(348, 78);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(124, 15);
+            this.label10.TabIndex = 49;
+            this.label10.Text = "Number of Questions:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(348, 55);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(142, 15);
+            this.label11.TabIndex = 48;
+            this.label11.Text = "Training Model Accuracy:";
+            // 
+            // TI_PeakTempLBL
+            // 
+            this.TI_PeakTempLBL.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.TI_PeakTempLBL.ForeColor = System.Drawing.Color.Black;
+            this.TI_PeakTempLBL.Location = new System.Drawing.Point(188, 77);
+            this.TI_PeakTempLBL.Name = "TI_PeakTempLBL";
+            this.TI_PeakTempLBL.Size = new System.Drawing.Size(80, 15);
+            this.TI_PeakTempLBL.TabIndex = 47;
+            this.TI_PeakTempLBL.Text = "2.4";
+            this.TI_PeakTempLBL.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // TI_AverageTempLBL
+            // 
+            this.TI_AverageTempLBL.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.TI_AverageTempLBL.ForeColor = System.Drawing.Color.Black;
+            this.TI_AverageTempLBL.Location = new System.Drawing.Point(188, 55);
+            this.TI_AverageTempLBL.Name = "TI_AverageTempLBL";
+            this.TI_AverageTempLBL.Size = new System.Drawing.Size(80, 15);
+            this.TI_AverageTempLBL.TabIndex = 46;
+            this.TI_AverageTempLBL.Text = "1.2";
+            this.TI_AverageTempLBL.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // TI_SummaryDataGRD
+            // 
+            this.TI_SummaryDataGRD.AllowUserToAddRows = false;
+            this.TI_SummaryDataGRD.AllowUserToDeleteRows = false;
+            this.TI_SummaryDataGRD.AllowUserToResizeColumns = false;
+            this.TI_SummaryDataGRD.AllowUserToResizeRows = false;
+            this.TI_SummaryDataGRD.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TI_SummaryDataGRD.BackgroundColor = System.Drawing.Color.White;
+            this.TI_SummaryDataGRD.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TI_SummaryDataGRD.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.TI_SummaryDataGRD.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.TI_SummaryDataGRD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            this.TI_SummaryDataGRD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.TI_SummaryDataGRD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.afterQuestionTemp,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.TI_SummaryDataGRD.DefaultCellStyle = dataGridViewCellStyle14;
+            this.TI_SummaryDataGRD.EnableHeadersVisualStyles = false;
+            this.TI_SummaryDataGRD.GridColor = System.Drawing.Color.White;
+            this.TI_SummaryDataGRD.Location = new System.Drawing.Point(14, 425);
+            this.TI_SummaryDataGRD.Name = "TI_SummaryDataGRD";
+            this.TI_SummaryDataGRD.ReadOnly = true;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.TI_SummaryDataGRD.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            this.TI_SummaryDataGRD.RowHeadersVisible = false;
+            this.TI_SummaryDataGRD.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.TI_SummaryDataGRD.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.TI_SummaryDataGRD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.TI_SummaryDataGRD.Size = new System.Drawing.Size(640, 205);
+            this.TI_SummaryDataGRD.TabIndex = 45;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "No.";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 50;
+            // 
+            // afterQuestionTemp
+            // 
+            this.afterQuestionTemp.HeaderText = "Temerature during Question";
+            this.afterQuestionTemp.Name = "afterQuestionTemp";
+            this.afterQuestionTemp.ReadOnly = true;
+            this.afterQuestionTemp.Width = 300;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Slope";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Tag";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(14, 391);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(230, 20);
+            this.label4.TabIndex = 44;
+            this.label4.Text = "Temperature Slope per Question";
+            // 
             // lbl1
             // 
             this.lbl1.AutoSize = true;
@@ -501,9 +681,9 @@
             this.lbl1.ForeColor = System.Drawing.Color.Black;
             this.lbl1.Location = new System.Drawing.Point(15, 77);
             this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(137, 15);
+            this.lbl1.Size = new System.Drawing.Size(134, 15);
             this.lbl1.TabIndex = 42;
-            this.lbl1.Text = "Temperature while lying:";
+            this.lbl1.Text = "Maximum Temperature:";
             // 
             // label21
             // 
@@ -512,9 +692,9 @@
             this.label21.ForeColor = System.Drawing.Color.Black;
             this.label21.Location = new System.Drawing.Point(15, 54);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(121, 15);
+            this.label21.Size = new System.Drawing.Size(123, 15);
             this.label21.TabIndex = 41;
-            this.label21.Text = "Average temperature:";
+            this.label21.Text = "Average Temperature:";
             // 
             // label22
             // 
@@ -544,87 +724,181 @@
             // EBTI_MainPNL
             // 
             this.EBTI_MainPNL.AutoScroll = true;
-            this.EBTI_MainPNL.Controls.Add(this.label30);
-            this.EBTI_MainPNL.Controls.Add(this.label31);
-            this.EBTI_MainPNL.Controls.Add(this.label28);
-            this.EBTI_MainPNL.Controls.Add(this.label29);
-            this.EBTI_MainPNL.Controls.Add(this.label26);
+            this.EBTI_MainPNL.Controls.Add(this.EBTI_Q1CHRT);
+            this.EBTI_MainPNL.Controls.Add(this.EBTI_QuestionsLBL);
+            this.EBTI_MainPNL.Controls.Add(this.label13);
+            this.EBTI_MainPNL.Controls.Add(this.EBTI_SummaryGRD);
+            this.EBTI_MainPNL.Controls.Add(this.label7);
+            this.EBTI_MainPNL.Controls.Add(this.EBTI_ThermalAccuracyLBL);
+            this.EBTI_MainPNL.Controls.Add(this.EBTI_EyeAccuracyLBL);
+            this.EBTI_MainPNL.Controls.Add(this.EBTI_CombinedAccuracyLBL);
             this.EBTI_MainPNL.Controls.Add(this.label27);
             this.EBTI_MainPNL.Controls.Add(this.label23);
             this.EBTI_MainPNL.Controls.Add(this.label24);
             this.EBTI_MainPNL.Controls.Add(this.label25);
-            this.EBTI_MainPNL.Controls.Add(this.label19);
             this.EBTI_MainPNL.Location = new System.Drawing.Point(35, 124);
             this.EBTI_MainPNL.Name = "EBTI_MainPNL";
             this.EBTI_MainPNL.Size = new System.Drawing.Size(693, 667);
             this.EBTI_MainPNL.TabIndex = 40;
             this.EBTI_MainPNL.Visible = false;
             // 
-            // label30
+            // EBTI_QuestionsLBL
             // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label30.ForeColor = System.Drawing.Color.Black;
-            this.label30.Location = new System.Drawing.Point(511, 78);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(22, 15);
-            this.label30.TabIndex = 48;
-            this.label30.Text = "2.4";
+            this.EBTI_QuestionsLBL.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.EBTI_QuestionsLBL.ForeColor = System.Drawing.Color.Black;
+            this.EBTI_QuestionsLBL.Location = new System.Drawing.Point(514, 79);
+            this.EBTI_QuestionsLBL.Name = "EBTI_QuestionsLBL";
+            this.EBTI_QuestionsLBL.Size = new System.Drawing.Size(87, 15);
+            this.EBTI_QuestionsLBL.TabIndex = 59;
+            this.EBTI_QuestionsLBL.Text = "Unbalanced";
+            this.EBTI_QuestionsLBL.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label31
+            // label13
             // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label31.ForeColor = System.Drawing.Color.Black;
-            this.label31.Location = new System.Drawing.Point(511, 55);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(22, 15);
-            this.label31.TabIndex = 47;
-            this.label31.Text = "1.2";
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(347, 78);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(119, 15);
+            this.label13.TabIndex = 58;
+            this.label13.Text = "Questions processed:";
             // 
-            // label28
+            // EBTI_SummaryGRD
             // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label28.ForeColor = System.Drawing.Color.Black;
-            this.label28.Location = new System.Drawing.Point(219, 77);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(22, 15);
-            this.label28.TabIndex = 46;
-            this.label28.Text = "2.4";
+            this.EBTI_SummaryGRD.AllowUserToAddRows = false;
+            this.EBTI_SummaryGRD.AllowUserToDeleteRows = false;
+            this.EBTI_SummaryGRD.AllowUserToResizeColumns = false;
+            this.EBTI_SummaryGRD.AllowUserToResizeRows = false;
+            this.EBTI_SummaryGRD.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.EBTI_SummaryGRD.BackgroundColor = System.Drawing.Color.White;
+            this.EBTI_SummaryGRD.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.EBTI_SummaryGRD.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.EBTI_SummaryGRD.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.EBTI_SummaryGRD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            this.EBTI_SummaryGRD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.EBTI_SummaryGRD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7});
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.EBTI_SummaryGRD.DefaultCellStyle = dataGridViewCellStyle17;
+            this.EBTI_SummaryGRD.EnableHeadersVisualStyles = false;
+            this.EBTI_SummaryGRD.GridColor = System.Drawing.Color.White;
+            this.EBTI_SummaryGRD.Location = new System.Drawing.Point(14, 425);
+            this.EBTI_SummaryGRD.Name = "EBTI_SummaryGRD";
+            this.EBTI_SummaryGRD.ReadOnly = true;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.EBTI_SummaryGRD.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            this.EBTI_SummaryGRD.RowHeadersVisible = false;
+            this.EBTI_SummaryGRD.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.EBTI_SummaryGRD.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.EBTI_SummaryGRD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.EBTI_SummaryGRD.Size = new System.Drawing.Size(640, 205);
+            this.EBTI_SummaryGRD.TabIndex = 57;
             // 
-            // label29
+            // dataGridViewTextBoxColumn2
             // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label29.ForeColor = System.Drawing.Color.Black;
-            this.label29.Location = new System.Drawing.Point(219, 54);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(22, 15);
-            this.label29.TabIndex = 45;
-            this.label29.Text = "1.2";
+            this.dataGridViewTextBoxColumn2.HeaderText = "No.";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 50;
             // 
-            // label26
+            // dataGridViewTextBoxColumn3
             // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label26.ForeColor = System.Drawing.Color.Black;
-            this.label26.Location = new System.Drawing.Point(312, 78);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(165, 15);
-            this.label26.TabIndex = 44;
-            this.label26.Text = "Temperature while answering:";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Temperature Slope";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 250;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Eye Blink Count Slope";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 250;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "Tag";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(14, 391);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(241, 20);
+            this.label7.TabIndex = 56;
+            this.label7.Text = "Prediction Summary per Question";
+            // 
+            // EBTI_ThermalAccuracyLBL
+            // 
+            this.EBTI_ThermalAccuracyLBL.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.EBTI_ThermalAccuracyLBL.ForeColor = System.Drawing.Color.Black;
+            this.EBTI_ThermalAccuracyLBL.Location = new System.Drawing.Point(188, 77);
+            this.EBTI_ThermalAccuracyLBL.Name = "EBTI_ThermalAccuracyLBL";
+            this.EBTI_ThermalAccuracyLBL.Size = new System.Drawing.Size(80, 15);
+            this.EBTI_ThermalAccuracyLBL.TabIndex = 55;
+            this.EBTI_ThermalAccuracyLBL.Text = "0";
+            this.EBTI_ThermalAccuracyLBL.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // EBTI_EyeAccuracyLBL
+            // 
+            this.EBTI_EyeAccuracyLBL.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.EBTI_EyeAccuracyLBL.ForeColor = System.Drawing.Color.Black;
+            this.EBTI_EyeAccuracyLBL.Location = new System.Drawing.Point(188, 55);
+            this.EBTI_EyeAccuracyLBL.Name = "EBTI_EyeAccuracyLBL";
+            this.EBTI_EyeAccuracyLBL.Size = new System.Drawing.Size(80, 15);
+            this.EBTI_EyeAccuracyLBL.TabIndex = 54;
+            this.EBTI_EyeAccuracyLBL.Text = "0";
+            this.EBTI_EyeAccuracyLBL.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // EBTI_CombinedAccuracyLBL
+            // 
+            this.EBTI_CombinedAccuracyLBL.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.EBTI_CombinedAccuracyLBL.ForeColor = System.Drawing.Color.Black;
+            this.EBTI_CombinedAccuracyLBL.Location = new System.Drawing.Point(514, 56);
+            this.EBTI_CombinedAccuracyLBL.Name = "EBTI_CombinedAccuracyLBL";
+            this.EBTI_CombinedAccuracyLBL.Size = new System.Drawing.Size(87, 15);
+            this.EBTI_CombinedAccuracyLBL.TabIndex = 52;
+            this.EBTI_CombinedAccuracyLBL.Text = "0";
+            this.EBTI_CombinedAccuracyLBL.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label27
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.label27.ForeColor = System.Drawing.Color.Black;
-            this.label27.Location = new System.Drawing.Point(312, 55);
+            this.label27.Location = new System.Drawing.Point(348, 55);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(121, 15);
+            this.label27.Size = new System.Drawing.Size(155, 15);
             this.label27.TabIndex = 43;
-            this.label27.Text = "Average temperature:";
+            this.label27.Text = "Combined Model Accuracy:";
             // 
             // label23
             // 
@@ -633,20 +907,20 @@
             this.label23.ForeColor = System.Drawing.Color.Black;
             this.label23.Location = new System.Drawing.Point(15, 77);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(138, 15);
+            this.label23.Size = new System.Drawing.Size(143, 15);
             this.label23.TabIndex = 42;
-            this.label23.Text = "Eye blinks after question:";
+            this.label23.Text = "Thermal Model Accuracy:";
             // 
             // label24
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.label24.ForeColor = System.Drawing.Color.Black;
-            this.label24.Location = new System.Drawing.Point(15, 54);
+            this.label24.Location = new System.Drawing.Point(15, 55);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(167, 15);
+            this.label24.Size = new System.Drawing.Size(146, 15);
             this.label24.TabIndex = 41;
-            this.label24.Text = "Average number of eye blinks:";
+            this.label24.Text = "Eye Blink Model Accuracy:";
             // 
             // label25
             // 
@@ -659,16 +933,46 @@
             this.label25.TabIndex = 40;
             this.label25.Text = "Eye Blinks Frequency + Temperature";
             // 
-            // label19
+            // EBTI_Q1CHRT
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(254, 319);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(29, 15);
-            this.label19.TabIndex = 39;
-            this.label19.Text = "EBTI";
+            this.EBTI_Q1CHRT.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.EBTI_Q1CHRT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.EBTI_Q1CHRT.BorderlineWidth = 0;
+            this.EBTI_Q1CHRT.BorderSkin.BorderWidth = 0;
+            chartArea5.AxisX.MajorGrid.Enabled = false;
+            chartArea5.AxisX2.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            chartArea5.AxisY.MajorGrid.Enabled = false;
+            chartArea5.AxisY.Minimum = 0D;
+            chartArea5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            chartArea5.Name = "TI_Q1CHRT";
+            chartArea5.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.EBTI_Q1CHRT.ChartAreas.Add(chartArea5);
+            this.EBTI_Q1CHRT.Location = new System.Drawing.Point(18, 114);
+            this.EBTI_Q1CHRT.Name = "EBTI_Q1CHRT";
+            this.EBTI_Q1CHRT.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Grayscale;
+            series6.ChartArea = "TI_Q1CHRT";
+            series6.IsValueShownAsLabel = true;
+            series6.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            series6.Name = "EyeBlink";
+            series7.BackSecondaryColor = System.Drawing.Color.White;
+            series7.BorderColor = System.Drawing.Color.White;
+            series7.BorderWidth = 2;
+            series7.ChartArea = "TI_Q1CHRT";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series7.Color = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            series7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series7.IsValueShownAsLabel = true;
+            series7.LabelForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            series7.MarkerBorderWidth = 0;
+            series7.MarkerSize = 10;
+            series7.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Diamond;
+            series7.Name = "Thermal";
+            this.EBTI_Q1CHRT.Series.Add(series6);
+            this.EBTI_Q1CHRT.Series.Add(series7);
+            this.EBTI_Q1CHRT.Size = new System.Drawing.Size(636, 252);
+            this.EBTI_Q1CHRT.TabIndex = 60;
+            this.EBTI_Q1CHRT.Text = "chart1";
             // 
             // TI_Q1CHRT
             // 
@@ -677,144 +981,32 @@
             this.TI_Q1CHRT.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.TI_Q1CHRT.BorderlineWidth = 0;
             this.TI_Q1CHRT.BorderSkin.BorderWidth = 0;
-            chartArea4.AxisX.MajorGrid.Enabled = false;
-            chartArea4.AxisY.MajorGrid.Enabled = false;
-            chartArea4.Name = "EB_Q1BlinksCHRT";
-            this.TI_Q1CHRT.ChartAreas.Add(chartArea4);
+            chartArea6.AxisX.MajorGrid.Enabled = false;
+            chartArea6.AxisY.MajorGrid.Enabled = false;
+            chartArea6.AxisY.Minimum = 35D;
+            chartArea6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            chartArea6.Name = "TI_Q1CHRT";
+            chartArea6.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.TI_Q1CHRT.ChartAreas.Add(chartArea6);
             this.TI_Q1CHRT.Location = new System.Drawing.Point(18, 114);
             this.TI_Q1CHRT.Name = "TI_Q1CHRT";
             this.TI_Q1CHRT.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Grayscale;
-            series4.BorderWidth = 0;
-            series4.ChartArea = "EB_Q1BlinksCHRT";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series4.MarkerBorderWidth = 0;
-            series4.Name = "Blinks";
-            this.TI_Q1CHRT.Series.Add(series4);
+            series8.BackSecondaryColor = System.Drawing.Color.White;
+            series8.BorderColor = System.Drawing.Color.White;
+            series8.BorderWidth = 2;
+            series8.ChartArea = "TI_Q1CHRT";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series8.Color = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            series8.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series8.IsValueShownAsLabel = true;
+            series8.MarkerBorderWidth = 0;
+            series8.MarkerSize = 10;
+            series8.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Diamond;
+            series8.Name = "Thermal";
+            this.TI_Q1CHRT.Series.Add(series8);
             this.TI_Q1CHRT.Size = new System.Drawing.Size(636, 252);
             this.TI_Q1CHRT.TabIndex = 43;
             this.TI_Q1CHRT.Text = "chart1";
-            // 
-            // TI_SummaryDataGRD
-            // 
-            this.TI_SummaryDataGRD.AllowUserToAddRows = false;
-            this.TI_SummaryDataGRD.AllowUserToDeleteRows = false;
-            this.TI_SummaryDataGRD.AllowUserToResizeColumns = false;
-            this.TI_SummaryDataGRD.AllowUserToResizeRows = false;
-            this.TI_SummaryDataGRD.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TI_SummaryDataGRD.BackgroundColor = System.Drawing.Color.White;
-            this.TI_SummaryDataGRD.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TI_SummaryDataGRD.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.TI_SummaryDataGRD.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.TI_SummaryDataGRD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            this.TI_SummaryDataGRD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.TI_SummaryDataGRD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.baseTemp,
-            this.afterQuestionTemp,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.TI_SummaryDataGRD.DefaultCellStyle = dataGridViewCellStyle11;
-            this.TI_SummaryDataGRD.EnableHeadersVisualStyles = false;
-            this.TI_SummaryDataGRD.GridColor = System.Drawing.Color.White;
-            this.TI_SummaryDataGRD.Location = new System.Drawing.Point(14, 425);
-            this.TI_SummaryDataGRD.Name = "TI_SummaryDataGRD";
-            this.TI_SummaryDataGRD.ReadOnly = true;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.TI_SummaryDataGRD.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
-            this.TI_SummaryDataGRD.RowHeadersVisible = false;
-            this.TI_SummaryDataGRD.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.TI_SummaryDataGRD.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TI_SummaryDataGRD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.TI_SummaryDataGRD.Size = new System.Drawing.Size(640, 205);
-            this.TI_SummaryDataGRD.TabIndex = 45;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(14, 391);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(230, 20);
-            this.label4.TabIndex = 44;
-            this.label4.Text = "Temperature Slope per Question";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "No.";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 50;
-            // 
-            // baseTemp
-            // 
-            this.baseTemp.HeaderText = "Base Temperature";
-            this.baseTemp.Name = "baseTemp";
-            this.baseTemp.ReadOnly = true;
-            this.baseTemp.Width = 200;
-            // 
-            // afterQuestionTemp
-            // 
-            this.afterQuestionTemp.HeaderText = "Temerature after Question";
-            this.afterQuestionTemp.Name = "afterQuestionTemp";
-            this.afterQuestionTemp.ReadOnly = true;
-            this.afterQuestionTemp.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Slope";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Tag";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // TI_PeakTempLBL
-            // 
-            this.TI_PeakTempLBL.AutoSize = true;
-            this.TI_PeakTempLBL.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.TI_PeakTempLBL.ForeColor = System.Drawing.Color.Black;
-            this.TI_PeakTempLBL.Location = new System.Drawing.Point(246, 77);
-            this.TI_PeakTempLBL.Name = "TI_PeakTempLBL";
-            this.TI_PeakTempLBL.Size = new System.Drawing.Size(22, 15);
-            this.TI_PeakTempLBL.TabIndex = 47;
-            this.TI_PeakTempLBL.Text = "2.4";
-            // 
-            // TI_AverageTempLBL
-            // 
-            this.TI_AverageTempLBL.AutoSize = true;
-            this.TI_AverageTempLBL.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.TI_AverageTempLBL.ForeColor = System.Drawing.Color.Black;
-            this.TI_AverageTempLBL.Location = new System.Drawing.Point(246, 55);
-            this.TI_AverageTempLBL.Name = "TI_AverageTempLBL";
-            this.TI_AverageTempLBL.Size = new System.Drawing.Size(22, 15);
-            this.TI_AverageTempLBL.TabIndex = 46;
-            this.TI_AverageTempLBL.Text = "1.2";
             // 
             // Report
             // 
@@ -828,9 +1020,9 @@
             this.Controls.Add(this.EB_MainLBL);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.EBTI_MainPNL);
             this.Controls.Add(this.TI_MainPNL);
             this.Controls.Add(this.EB_MainPNL);
-            this.Controls.Add(this.EBTI_MainPNL);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MinimumSize = new System.Drawing.Size(1040, 830);
@@ -838,6 +1030,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Report_FormClosing);
             this.Load += new System.EventHandler(this.Report_Load);
+            this.Shown += new System.EventHandler(this.Report_Shown);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Report_KeyDown);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Drag_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Drag_MouseMove);
@@ -850,10 +1043,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.EB_Q1CHRT)).EndInit();
             this.TI_MainPNL.ResumeLayout(false);
             this.TI_MainPNL.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TI_SummaryDataGRD)).EndInit();
             this.EBTI_MainPNL.ResumeLayout(false);
             this.EBTI_MainPNL.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EBTI_SummaryGRD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EBTI_Q1CHRT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TI_Q1CHRT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TI_SummaryDataGRD)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -885,15 +1080,9 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label EBTI_MainLBL;
         private System.Windows.Forms.Panel EBTI_MainPNL;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label lbl1;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
@@ -907,14 +1096,29 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Slope;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tag;
         private System.Windows.Forms.DataGridView TI_SummaryDataGRD;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label TI_PeakTempLBL;
+        private System.Windows.Forms.Label TI_AverageTempLBL;
+        private System.Windows.Forms.Label TI_NumberOfQuestionsLBL;
+        private System.Windows.Forms.Label TI_ModelAccuracyLBL;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label EBTI_ThermalAccuracyLBL;
+        private System.Windows.Forms.Label EBTI_EyeAccuracyLBL;
+        private System.Windows.Forms.Label EBTI_CombinedAccuracyLBL;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn baseTemp;
         private System.Windows.Forms.DataGridViewTextBoxColumn afterQuestionTemp;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label EBTI_QuestionsLBL;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DataGridView EBTI_SummaryGRD;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataVisualization.Charting.Chart TI_Q1CHRT;
-        private System.Windows.Forms.Label TI_PeakTempLBL;
-        private System.Windows.Forms.Label TI_AverageTempLBL;
+        private System.Windows.Forms.DataVisualization.Charting.Chart EBTI_Q1CHRT;
     }
 }

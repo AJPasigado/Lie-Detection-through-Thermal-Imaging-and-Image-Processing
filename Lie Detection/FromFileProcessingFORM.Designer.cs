@@ -33,6 +33,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.CancelBTN = new System.Windows.Forms.Button();
+            this.TI_RealtimeLogTXBX = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // EB_RealtimeLogTXBX
@@ -41,11 +44,11 @@
             this.EB_RealtimeLogTXBX.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.EB_RealtimeLogTXBX.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.EB_RealtimeLogTXBX.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
-            this.EB_RealtimeLogTXBX.Location = new System.Drawing.Point(36, 150);
+            this.EB_RealtimeLogTXBX.Location = new System.Drawing.Point(286, 169);
             this.EB_RealtimeLogTXBX.Multiline = true;
             this.EB_RealtimeLogTXBX.Name = "EB_RealtimeLogTXBX";
             this.EB_RealtimeLogTXBX.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.EB_RealtimeLogTXBX.Size = new System.Drawing.Size(487, 310);
+            this.EB_RealtimeLogTXBX.Size = new System.Drawing.Size(237, 291);
             this.EB_RealtimeLogTXBX.TabIndex = 11;
             this.EB_RealtimeLogTXBX.WordWrap = false;
             // 
@@ -57,7 +60,7 @@
             this.DoneBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DoneBTN.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.DoneBTN.ForeColor = System.Drawing.SystemColors.Control;
-            this.DoneBTN.Location = new System.Drawing.Point(40, 484);
+            this.DoneBTN.Location = new System.Drawing.Point(34, 484);
             this.DoneBTN.Name = "DoneBTN";
             this.DoneBTN.Size = new System.Drawing.Size(238, 33);
             this.DoneBTN.TabIndex = 32;
@@ -98,13 +101,49 @@
             this.CancelBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelBTN.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
             this.CancelBTN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
-            this.CancelBTN.Location = new System.Drawing.Point(284, 484);
+            this.CancelBTN.Location = new System.Drawing.Point(287, 484);
             this.CancelBTN.Name = "CancelBTN";
             this.CancelBTN.Size = new System.Drawing.Size(238, 33);
             this.CancelBTN.TabIndex = 35;
             this.CancelBTN.Text = "CANCEL";
             this.CancelBTN.UseVisualStyleBackColor = false;
             this.CancelBTN.Click += new System.EventHandler(this.CancelBTN_Click);
+            // 
+            // TI_RealtimeLogTXBX
+            // 
+            this.TI_RealtimeLogTXBX.BackColor = System.Drawing.Color.White;
+            this.TI_RealtimeLogTXBX.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TI_RealtimeLogTXBX.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.TI_RealtimeLogTXBX.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
+            this.TI_RealtimeLogTXBX.Location = new System.Drawing.Point(34, 169);
+            this.TI_RealtimeLogTXBX.Multiline = true;
+            this.TI_RealtimeLogTXBX.Name = "TI_RealtimeLogTXBX";
+            this.TI_RealtimeLogTXBX.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.TI_RealtimeLogTXBX.Size = new System.Drawing.Size(237, 291);
+            this.TI_RealtimeLogTXBX.TabIndex = 1;
+            this.TI_RealtimeLogTXBX.WordWrap = false;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
+            this.label23.Location = new System.Drawing.Point(33, 147);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(119, 15);
+            this.label23.TabIndex = 37;
+            this.label23.Text = "THERMAL IMAGING";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(112)))), ((int)(((byte)(112)))));
+            this.label22.Location = new System.Drawing.Point(286, 147);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(127, 15);
+            this.label22.TabIndex = 36;
+            this.label22.Text = "EYE BLINK TRACKING";
             // 
             // FromFileProcessingFORM
             // 
@@ -114,6 +153,9 @@
             this.CancelButton = this.DoneBTN;
             this.ClientSize = new System.Drawing.Size(558, 551);
             this.ControlBox = false;
+            this.Controls.Add(this.label23);
+            this.Controls.Add(this.label22);
+            this.Controls.Add(this.TI_RealtimeLogTXBX);
             this.Controls.Add(this.CancelBTN);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
@@ -136,5 +178,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button CancelBTN;
+        private System.Windows.Forms.TextBox TI_RealtimeLogTXBX;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
     }
 }
