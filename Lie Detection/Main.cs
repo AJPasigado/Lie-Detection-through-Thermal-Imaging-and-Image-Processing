@@ -382,8 +382,6 @@ namespace Lie_Detection {
         public void TI_EndSession() {
             TI_IN_SESSION = false;
             TI_UpdateTMR.Stop();
-            thermalThread.Join(500);
-            if (thermal != null) thermal.Deinit();
             TI_FROM_FILE = false;
         }
 
@@ -412,7 +410,7 @@ namespace Lie_Detection {
                                 TI_EndSession(); //If no more frames are detected, stop the session
                             }
                         }
-                        Thread.Sleep(9);
+                        Thread.Sleep(65);
                     } catch (Exception e){
                         TI_EndSession();
                     }
@@ -455,36 +453,40 @@ namespace Lie_Detection {
             Image<Gray, Byte> videoFeedGray = videoFeed.Convert<Gray, Byte>();
             var image = videoFeedGray.ThresholdBinary(new Gray(150), new Gray(255));
 
-            BlobCounter bc = new BlobCounter();
-            bc.FilterBlobs = true;
-            bc.MinWidth = 100;
-            bc.MinHeight = 100;
-            bc.ObjectsOrder = ObjectsOrder.Size;
-            bc.ProcessImage(image.Bitmap);
+            try {
+                BlobCounter bc = new BlobCounter();
+                bc.FilterBlobs = true;
+                bc.MinWidth = 100;
+                bc.MinHeight = 100;
+                bc.ObjectsOrder = ObjectsOrder.Size;
+                bc.ProcessImage(image.Bitmap);
 
-            videoFeed.Draw(bc.GetObjectsRectangles()[0], new Bgr(Color.White), 2);
+                videoFeed.Draw(bc.GetObjectsRectangles()[0], new Bgr(Color.White), 2);
 
-            var video = videoFeed;
-            var rects = bc.GetObjectsRectangles()[0];
-            rects.Height /= 4;
-            rects.Width -= 90;
-            rects.X += 30;
-            rects.Y += 55;
+                var video = videoFeed;
+                var rects = bc.GetObjectsRectangles()[0];
+                rects.Height /= 4;
+                rects.Width -= 90;
+                rects.X += 30;
+                rects.Y += 55;
 
-            videoFeed.Draw(rects, new Bgr(Color.Black), 2);
-            TI_VideoFeedIB.Image = videoFeed.Resize(TI_VideoFeedIB.Width, TI_VideoFeedIB.Height, Inter.Linear);
+                videoFeed.Draw(rects, new Bgr(Color.Black), 2);
+                TI_VideoFeedIB.Image = videoFeed.Resize(TI_VideoFeedIB.Width, TI_VideoFeedIB.Height, Inter.Linear);
             
-            video.ROI = rects;
-
-            double[] minVal, maxVal;
-            Point[] minLoc, maxLoc;
-            video.MinMax(out minVal, out maxVal, out minLoc, out maxLoc);
-
-            Bitmap bitImage = new Bitmap(video.Convert<Gray, Byte>().Bitmap);
-            Color maxPixel = bitImage.GetPixel((maxLoc[0].X + maxLoc[1].X + maxLoc[2].X) /3, (maxLoc[0].Y + maxLoc[1].Y + maxLoc[2].Y) /3);
+                video.ROI = rects;
             
-            TI_CURRENT_TEMP = (((maxPixel.R + maxPixel.G + maxPixel.B) / 3) * (TI_MAX_TEMP - TI_MIN_TEMP)) / 255 + TI_MIN_TEMP;
+                double[] minVal, maxVal;
+                Point[] minLoc, maxLoc;
+                video.MinMax(out minVal, out maxVal, out minLoc, out maxLoc);
 
+                Bitmap bitImage = new Bitmap(video.Convert<Gray, Byte>().Bitmap);
+                Color maxPixel = bitImage.GetPixel(maxLoc[0].X, (maxLoc[0].Y + maxLoc[1].Y + maxLoc[2].Y) /3);
+                TI_CURRENT_TEMP = (((maxPixel.R + maxPixel.G + maxPixel.B) / 3) * (TI_MAX_TEMP - TI_MIN_TEMP)) / 255 + TI_MIN_TEMP;
+
+            } catch {
+
+            }
+           
         }
 
         double TI_TOTAL_TEMP = 0.0;

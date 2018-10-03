@@ -6,8 +6,8 @@ namespace Lie_Detection
     public partial class FromFileProcessingFORM : Form
     {
         public Main reference = new Main();
-        public String data;
-        public String TI_data;
+        public string data;
+        public string TI_data;
         public Shadow refer;
 
         public FromFileProcessingFORM()

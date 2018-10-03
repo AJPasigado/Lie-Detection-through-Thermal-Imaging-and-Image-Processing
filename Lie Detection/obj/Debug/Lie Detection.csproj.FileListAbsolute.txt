@@ -60,3 +60,4 @@ D:\Documents\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\L
 D:\Documents\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\bin\Debug\AForge.dll
 D:\Documents\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\bin\Debug\AForge.Imaging.dll
 D:\Documents\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\obj\Debug\Lie Detection.csprojAssemblyReference.cache
+D:\Documents\GitHub\Lie-Detection-through-Thermal-Imaging-and-Image-Processing\Lie Detection\obj\Debug\Lie_Detection.AddToModelForm.resources
